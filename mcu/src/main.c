@@ -19,6 +19,7 @@ int main(void) {
     //initSPI(0b010, 0, 0);  // BR=0b010, CPOL=0, CPHA=0
     printf("hi");
     initADC();
+    ADC1->CR |= ADC_CR_ADSTART;
     printf("ADC init done");
 
     while (1) {

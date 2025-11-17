@@ -20,6 +20,7 @@
 #include "STM32L432KC_SPI.h"
 #include "STM32L432KC_ADC.h"
 #include "STM32L432KC_TIM6.h"
+#include "STM32L432KC_DMA.h"
 
 // Global defines
 

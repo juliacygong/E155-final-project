@@ -25,6 +25,7 @@ void initADC(void) {
 
     // Configure ADC
     ADC1->CFGR = 0; // single conversion, right alignment
+    // ADC1->CFGR |= ADC_CFGR_CONT | ADC_CFGR_DMAEN | ADC_CFGR_DMACFG;
 
     // Select channel 5 (PA0)
     ADC1->SQR1 = (5 << ADC_SQR1_SQ1_Pos);
