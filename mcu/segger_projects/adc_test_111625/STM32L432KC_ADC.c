@@ -25,7 +25,7 @@ void initADC(void) {
 
     // Configure ADC
     ADC1->CFGR = 0; // single conversion, right alignment
-    // ADC1->CFGR |= ADC_CFGR_CONT | ADC_CFGR_DMAEN | ADC_CFGR_DMACFG;
+    ADC1->CFGR |= ADC_CFGR_CONT | ADC_CFGR_DMAEN | ADC_CFGR_DMACFG;
 
     // Select channel 5 (PA0)
     ADC1->SQR1 = (5 << ADC_SQR1_SQ1_Pos);
@@ -46,8 +46,8 @@ void initADC(void) {
     delay(10);
 
     // Enable ADC
-    ADC1->CFGR |= ADC_CFGR_CONT; // allow for continuous mode
-    ADC1->ISR |= ADC_ISR_ADRDY;
+    //ADC1->CFGR |= ADC_CFGR_CONT; // allow for continuous mode
+    ADC1->ISR |= ADC_ISR_ADRDY; // check if this is needed
     ADC1->CR |= ADC_CR_ADEN;
     while (!(ADC1->ISR & ADC_ISR_ADRDY));
 }
