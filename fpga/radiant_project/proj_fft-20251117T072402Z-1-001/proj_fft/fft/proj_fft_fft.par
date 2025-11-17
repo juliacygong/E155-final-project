@@ -1,6 +1,6 @@
                          Lattice PAR Report File
-Radiant Software (64-bit) 2024.2.0.3.0
-Sun Nov 16 20:01:40 2025
+Radiant Software (64-bit) 2025.1.0.39.0
+Sun Nov 16 23:32:00 2025
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 	proj_fft_fft_map.udb proj_fft_fft.udb 
@@ -9,22 +9,22 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 Level/       Number       Estimated       Timing       Estimated Worst    Timing          Run      Run
 Cost [udb]   Unrouted     Worst Slack     Score        Slack(hold)        Score(hold)     Time     Status
 ----------   --------     -----------     ------       ---------------    -----------     ----     ------
-5_1   *      0            -               -            -                  -               07       Completed
+5_1   *      0            -               -            -                  -               26       Completed
 
 * : Design saved.
 
-Total (real) run time for 1-seed: 7 secs 
+Total (real) run time for 1-seed: 27 secs 
 
 par done!
 
-PAR: Place And Route Radiant Software (64-bit) 2024.2.0.3.0.
-PARed on: Sun Nov 16 20:01:40 2025
+PAR: Place And Route Radiant Software (64-bit) 2025.1.0.39.0.
+PARed on: Sun Nov 16 23:32:00 2025
 
 Command Line: par -w -t 1 -cores 1 -hsp m -exp parPathBased=ON \
 	proj_fft_fft_map.udb proj_fft_fft_par.dir/5_1.udb 
 
 Loading proj_fft_fft_map.udb ...
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2024.2/ispfpga.
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2025.1/ispfpga.
 Package Status:                     Preliminary    Version 1.5.
 Performance Hardware Data Status:   Advanced       Version 1.0.
 
@@ -70,13 +70,13 @@ Pin Constraint Summary:
    0 out of 30 pins locked (0% locked).
 .
 ..............
-Finished Placer Phase 0 (HIER). CPU time: 0 secs , REAL time: 0 secs 
+Finished Placer Phase 0 (HIER). CPU time: 1 secs , REAL time: 2 secs 
 
 
 ................
-Finished Placer Phase 0 (AP).  CPU time: 0 secs , REAL time: 0 secs 
+Finished Placer Phase 0 (AP).  CPU time: 1 secs , REAL time: 2 secs 
 
-Starting Placer Phase 1. CPU time: 0 secs , REAL time: 0 secs 
+Starting Placer Phase 1. CPU time: 1 secs , REAL time: 2 secs 
 ..  ..
 ....................
 
@@ -85,13 +85,13 @@ Placer score = 405744.
 Device SLICE utilization summary after final SLICE packing:
    SLICE            497/2640         18% used
 
-Finished Placer Phase 1. CPU time: 5 secs , REAL time: 5 secs 
+Finished Placer Phase 1. CPU time: 16 secs , REAL time: 19 secs 
 
 Starting Placer Phase 2.
 .
 
 Placer score =  908741
-Finished Placer Phase 2.  CPU time: 5 secs , REAL time: 5 secs 
+Finished Placer Phase 2.  CPU time: 16 secs , REAL time: 19 secs 
 
 
 ------------------ Clock Report ------------------
@@ -119,10 +119,10 @@ I/O Bank Usage Summary:
 | 2        | 4 / 8 ( 50%)   | 3.3V       |            |            |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 5 secs , REAL time: 5 secs 
+Total Placer CPU time: 16 secs , REAL time: 19 secs 
 
 
-Checksum -- place: 52bf52eb768dbf9e9c116dfca113d36297a127
+Checksum -- place: 6cc889f3524afbef5787b8f855dfdd92c1820ed
 Writing design to file proj_fft_fft_par.dir/5_1.udb ...
 
 
@@ -131,7 +131,7 @@ INFO - par: ASE feature is off due to non timing-driven settings.
 -----------------------------------------------------------------
 
 
-Start NBR router at 20:01:45 11/16/25
+Start NBR router at 23:32:19 11/16/25
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -160,50 +160,44 @@ Primary clocks (1 used out of 8 available):
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
 
-Start NBR section for initial routing at 20:01:46 11/16/25
+Start NBR section for initial routing at 23:32:21 11/16/25
 Level 4, iteration 1
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Routing in Serial Mode ......
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-276(0.11%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+276(0.11%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 4 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 20:01:46 11/16/25
+Start NBR section for normal routing at 23:32:23 11/16/25
 Level 4, iteration 1
-125(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+127(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 5 secs 
 Level 4, iteration 2
-88(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+90(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 5 secs 
 Level 4, iteration 3
-55(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+54(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 4
-39(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+37(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 5
-18(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+18(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 6
-13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+11(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 7
-9(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+7(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 8
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 Level 4, iteration 9
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
-Level 4, iteration 10
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
-Level 4, iteration 11
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
-Level 4, iteration 12
-0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 2 secs 
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 6 secs 
 
-Start NBR section for post-routing at 20:01:47 11/16/25
+Start NBR section for post-routing at 23:32:25 11/16/25
 
 End NBR router with 0 unrouted connection(s)
 
-Checksum -- route: 7245f8a859f227127905d873e94ec6f1d9d63921
+Checksum -- route: c6226f3ee4f4156abf05433abfeacc194fba1488
 
-Total CPU time 1 secs 
-Total REAL time: 2 secs 
+Total CPU time 5 secs 
+Total REAL time: 7 secs 
 Completely routed.
 End of route.  3772 routed (100.00%); 0 unrouted.
 
@@ -223,9 +217,9 @@ PAR_SUMMARY::Number of errors = 0
 
 Note: user must run 'timing' for timing closure signoff.
 
-Total CPU  Time: 7 secs 
-Total REAL Time: 7 secs 
-Peak Memory Usage: 115.92 MB
+Total CPU  Time: 23 secs 
+Total REAL Time: 27 secs 
+Peak Memory Usage: 117.28 MB
 
 
 par done!
@@ -234,4 +228,4 @@ Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.

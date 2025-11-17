@@ -35,34 +35,35 @@
 
 
 
+
 -drc_cfg 35103300 20
 -use_io_insertion 1
 
 -resolve_mixed_drivers 0
 -sdc "proj_fft_fft_cpe.ldc"
--path "C:/Users/jgong/my_designs/proj_fft/ramdq"
--path "C:/Users/jgong/my_designs/proj_fft/ramdualpt"
--path "C:/lscc/radiant/2024.2/ispfpga/ice40tp/data" "C:/Users/jgong/my_designs/proj_fft/fft" "C:/Users/jgong/my_designs/proj_fft"
--ver "C:/lscc/radiant/2024.2/ip/pmi/pmi_iCE40UP.v"
--lib pmi -vhd "C:/lscc/radiant/2024.2/ip/pmi/pmi_iCE40UP.vhd"
--sver "C:/Users/jgong/my_designs/proj_fft/source/fft/fft.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/addgen.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/addctrl.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/bitrev.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/butterfly.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/cmplxmult.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/ram2p.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/twiddleLUT.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/multiply.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/freqLUT.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/fftdec.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/fftfull.sv"
-"C:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv"
--ver "C:/Users/jgong/my_designs/proj_fft/ramdualpt/rtl/ramdualpt.v"
-"C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v"
+-path "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdq"
+-path "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdualpt"
+-path "C:/lscc/radiant/2025.1/ispfpga/ice40tp/data" "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/fft" "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft" "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft" "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdualpt" "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdq"
+-ver "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/fft.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/addgen.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/addctrl.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/bitrev.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/butterfly.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/cmplxmult.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/ram2p.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/twiddleLUT.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/multiply.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/freqLUT.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/fftdec.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/fftfull.sv"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/source/fft/ram1p.sv"
+-ver "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdualpt/rtl/ramdualpt.v"
+"C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft/ramdq/rtl/ramdq.v"
 
 
--path "C:/Users/jgong/my_designs/proj_fft"
+-path "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft"
 -top fftfull
 -udb "proj_fft_fft_rtl.udb"
 -output_hdl "proj_fft_fft.vm"

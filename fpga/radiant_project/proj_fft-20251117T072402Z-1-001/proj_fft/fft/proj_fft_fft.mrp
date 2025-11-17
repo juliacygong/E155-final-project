@@ -7,15 +7,16 @@ Device:  iCE40UP5K
 Package: SG48
 Performance Grade:  High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
-Mapped on: Sun Nov 16 20:01:30 2025
+Mapper:    version Radiant Software (64-bit) 2025.1.0.39.0
+Mapped on: Sun Nov 16 23:31:39 2025
 
 Design Information
 ------------------
 
 Command line:   map -i proj_fft_fft_syn.udb -o proj_fft_fft_map.udb -mp
-     proj_fft_fft.mrp -hierrpt -gui -msgset
-     C:/Users/jgong/my_designs/proj_fft/promote.xml
+     proj_fft_fft.mrp -hierrpt -gui -msgset C:/Users/User/Desktop/Engr 155/e155-
+     final-project/fpga/radiant_project/proj_fft-20251117T072402Z-1-001/proj_fft
+     /promote.xml
 
 Design Summary
 --------------
@@ -59,7 +60,6 @@ Design Summary
       Net fft.addctrl_inst.addgen.n2840: 9 loads, 9 SLICEs
       Net n2858: 9 loads, 9 SLICEs
       Net n2823: 16 loads, 16 SLICEs
-      Net n2824: 5 loads, 5 SLICEs
 
                                     Page 1
 
@@ -69,6 +69,7 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
+      Net n2824: 5 loads, 5 SLICEs
       Net n2856: 9 loads, 9 SLICEs
    Number of LSRs:  1
       Net n608: 54 loads, 54 SLICEs
@@ -126,7 +127,6 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | add_rd[6]           | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| add_rd[7]           | INPUT     |           |       |       |           |
 
                                     Page 2
 
@@ -136,6 +136,7 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
+| add_rd[7]           | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | add_rd[8]           | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -192,7 +193,6 @@ Instance Name: fft/ram1_b/lscc_ram_dq_inst/mem_main/inst0/PRIM_MODE.xADDR[0].xDA
      TA[1].no_mem_file.mem0/iCE40UP.sp4k.ebr_inst
          Type: EBR
 Instance Name: fft/ram1_b/lscc_ram_dq_inst/mem_main/inst0/PRIM_MODE.xADDR[0].xDA
-     TA[0].no_mem_file.mem0/iCE40UP.sp4k.ebr_inst
 
                                     Page 3
 
@@ -202,6 +202,7 @@ Instance Name: fft/ram1_b/lscc_ram_dq_inst/mem_main/inst0/PRIM_MODE.xADDR[0].xDA
 
 ASIC Components (cont)
 ----------------------
+     TA[0].no_mem_file.mem0/iCE40UP.sp4k.ebr_inst
          Type: EBR
 Instance Name: fft/ram1_a/lscc_ram_dq_inst/mem_main/inst0/PRIM_MODE.xADDR[0].xDA
      TA[3].no_mem_file.mem0/iCE40UP.sp4k.ebr_inst
@@ -259,7 +260,6 @@ Constraint Summary
    Total number of constraints dropped: 0
 
 
-
                                     Page 4
 
 
@@ -269,9 +269,9 @@ Constraint Summary
 Run Time and Memory Usage
 -------------------------
 
-   Total CPU Time: 0 secs
+   Total CPU Time: 1 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 78 MB
+   Peak Memory Usage: 80 MB
 Checksum -- map: 4b71145348871cfb68a1e6f126d7ba10a1b4536f
 
 
@@ -336,5 +336,5 @@ Copyright (c) 1995-2001 Lucent
      Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems
      All rights reserved.
-Copyright (c) 2002-2024 Lattice Semiconductor
+Copyright (c) 2002-2025 Lattice Semiconductor
      Corporation,  All rights reserved.
