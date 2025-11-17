@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2024.2/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2024.2/ip/pmi/pmi_iCE40UP.vhd"
+-ver "C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v"
+-sdc "C:/Users/jgong/my_designs/proj_fft/ramdq/constraints/ramdq.ldc"
+-path "C:/Users/jgong/my_designs/proj_fft/ramdq" "C:/Users/jgong/my_designs/proj_fft"
+-top ramdq
+-a "iCE40UP"
+-t "iCE40UP5K"

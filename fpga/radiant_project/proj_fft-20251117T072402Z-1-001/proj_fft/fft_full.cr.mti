@@ -1,0 +1,71 @@
+C:/Users/jgong/my_designs/proj_fft/source/fft/multiply.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/multiply.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module multiply
+
+Top level modules:
+	multiply
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/butterfly.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/butterfly.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module butterfly
+
+Top level modules:
+	butterfly
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/bitrev.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/bitrev.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module bitrev
+
+Top level modules:
+	bitrev
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/fftdec.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/fftdec.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fftdec
+
+Top level modules:
+	fftdec
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/addctrl.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/addctrl.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addctrl
+
+Top level modules:
+	addctrl
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/cmplxmult.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/cmplxmult.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module cmplxmult
+
+Top level modules:
+	cmplxmult
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/twiddleLUT.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/twiddleLUT.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module twiddleLUT
+
+Top level modules:
+	twiddleLUT
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/addgen.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/addgen.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addgen
+
+Top level modules:
+	addgen
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/fftfull.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/fftfull.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fftfull
+
+Top level modules:
+	fftfull
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/freqLUT.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/freqLUT.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module freqLUT
+
+Top level modules:
+	freqLUT
+
+} {} {}}
