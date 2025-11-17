@@ -48,7 +48,7 @@ initial begin
 end
 
 //---------------------------------------------------------
-//  GLOBAL check task (✓ allowed)
+//  GLOBAL check task (âœ“ allowed)
 //---------------------------------------------------------
 task check(string nm, logic [63:0] exp, logic [63:0] got);
     if (exp !== got) begin
