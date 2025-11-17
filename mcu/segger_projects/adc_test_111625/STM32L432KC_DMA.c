@@ -1,6 +1,5 @@
 #include "STM32L432KC_DMA.h"
 
-#define ADC_BUF_LEN  256
 uint16_t adcBuf[ADC_BUF_LEN];
 
 void initADC_DMA(void) {
@@ -25,11 +24,18 @@ void initADC_DMA(void) {
          _VAL2FLD(DMA_CCR_MINC, 0b1) |    // Memory increment
          _VAL2FLD(DMA_CCR_CIRC, 0b1) |    // Circular mode
          _VAL2FLD(DMA_CCR_MSIZE, 0b01) |  // Memory size = 16 bits
-         _VAL2FLD(DMA_CCR_PSIZE, 0b01)    // Peripheral size = 16 bits
+         _VAL2FLD(DMA_CCR_PSIZE, 0b01) |  // Peripheral size = 16 bits
+         _VAL2FLD(DMA_CCR_HTIE, 0b01) |   // Half transfer interrupt enable
+         _VAL2FLD(DMA_CCR_TCIE, 0b01)     // Transfer complete interrupt enable
         );
 
     // Ensure direction is peripheral to memory
     DMA1_Channel1->CCR &= ~DMA_CCR_DIR;
+
+    DMA1->IFCR = DMA_IFCR_CGIF1 | DMA_IFCR_CTCIF1 | DMA_IFCR_CHTIF1 | DMA_IFCR_CTEIF1;
+
+    NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+    NVIC_EnableIRQ(DMA1_Channel3_IRQn);
 
     // Enable DMA channel
     DMA1_Channel1->CCR |= DMA_CCR_EN;
@@ -57,7 +63,7 @@ void startSPI_DMA(uint16_t *data, uint32_t length) {
         (_VAL2FLD(DMA_CCR_PL,0b10) |      // Priority level: high
          _VAL2FLD(DMA_CCR_MINC, 0b1) |    // Memory increment
          _VAL2FLD(DMA_CCR_MSIZE, 0b01) |  // Memory size = 16 bits
-         _VAL2FLD(DMA_CCR_PSIZE, 0b01)    // Peripheral size = 16 bits
+         _VAL2FLD(DMA_CCR_PSIZE, 0b01) |  // Peripheral size = 16 bits
          _VAL2FLD(DMA_CCR_DIR, 0b1)       // Memory to Peripheral
         );
 
