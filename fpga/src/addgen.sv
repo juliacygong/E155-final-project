@@ -74,6 +74,6 @@ assign read_sel = fft_level[0];
 // only write when fft agu is occurring
 assign mem_write0 = (fft_level[0] & fft_enable); 
 assign mem_write1 = (~fft_level[0] & fft_enable);
-
+ 
 
 endmodule
