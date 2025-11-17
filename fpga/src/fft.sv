@@ -53,39 +53,35 @@ assign img_a = a[BIT_WIDTH - 1:0];
 assign real_b = b[2*BIT_WIDTH - 1:BIT_WIDTH];
 assign img_b = b[BIT_WIDTH - 1:0];
 
+// RAM0 and RAM1
 
-// two port RAM0 and RAM1
-ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-	ram0_a(.clk(clk),
-		   .we(mem_write0),
-		   .add(r0_add_a),
-		   .din({real_write_a, img_write_a}),
-		   .dout(r0_out_a)
-		   );
-		   
-ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-	ram0_b(.clk(clk),
-		   .we(mem_write0),
-		   .add(r0_add_b),
-		   .din({real_write_b, img_write_b}),
-		   .dout(r0_out_b)
-		   );
-		   
-ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-	ram1_a(.clk(clk),
-		   .we(mem_write1),
-		   .add(r1_add_a),
-		   .din({real_write_a, img_write_a}),
-		   .dout(r1_out_a)
-		   );
-		   
-ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-	ram1_b(.clk(clk),
-		   .we(mem_write1),
-		   .add(r1_add_b),
-		   .din({real_write_b, img_write_b}),
-		   .dout(r1_out_b)
-		   );
+ramdq ram0_a(.clk_i(clk),
+				 .rst_i(reset),
+				 .wr_en_i(mem_write0),
+				 .wr_data_i({real_write_a, img_write_a}),
+				 .addr_i(r0_add_a),
+				 .rd_data_o(r0_out_a));
+
+ramdq ram0_b(.clk_i(clk),
+				 .rst_i(reset),
+				 .wr_en_i(mem_write0),
+				 .wr_data_i({real_write_b, img_write_b}),
+				 .addr_i(r0_add_b),
+				 .rd_data_o(r0_out_b));
+
+ramdq ram1_a(.clk_i(clk),
+				 .rst_i(reset),
+				 .wr_en_i(mem_write1),
+				 .wr_data_i({real_write_a, img_write_a}),
+				 .addr_i(r1_add_a),
+				 .rd_data_o(r1_out_a));
+
+ramdq ram1_b(.clk_i(clk),
+				 .rst_i(reset),
+				 .wr_en_i(mem_write1),
+				 .wr_data_i({real_write_b, img_write_b}),
+				 .addr_i(r1_add_b),
+				 .rd_data_o(r1_out_b));
 
 
 // twiddle LUT
