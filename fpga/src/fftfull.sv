@@ -7,12 +7,11 @@
 
 module fftfull #(parameter BIT_WIDTH = 16, N = 9, FFT_SIZE = 512, FS = 48000)
                 (input logic clk, reset,
-                 input logic fft_start, 
-                 input logic fft_load,
+				 input logic fft_load, fft_start,
 				 input logic [BIT_WIDTH - 1:0] din,
                  input logic [N - 1:0] add_rd,
-                 output logic [7:0] note);
-
+                 output logic noted);
+				 
 // fft logic
 logic [2*BIT_WIDTH - 1:0] dout;
 logic fft_done;
@@ -42,5 +41,8 @@ fftdec #(.BIT_WIDTH(BIT_WIDTH), .N(N), .FFT_SIZE(FFT_SIZE), .FS(FS))
 freqLUT #(.BIT_WIDTH(BIT_WIDTH))
     freqLUT(.frequency(frequency),
             .note(note));
+
+logic [7:0] note;
+assign noted = (note != 8'b0000_0000);
 
 endmodule
