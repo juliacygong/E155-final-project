@@ -4,7 +4,7 @@
 
 `timescale 1ns/1ps
 
-module addctrl #(parameter BIT_WIDTH = 16, N = 9)
+module testbench_addctrl #(parameter BIT_WIDTH = 16, N = 9) ();
 
 logic clk, reset, fft_start, fft_load;
 logic [N - 1:0] add_rd;
@@ -32,6 +32,12 @@ addctrl(.clk(clk),
         .fft_done(fft_done)
     );
 
+always
+begin
+	clk = 1; #5; clk=0; #5;
+end
+   
+
 initial begin
         $display("add_rd inputs from 0 to 511");
 
@@ -40,7 +46,7 @@ initial begin
         fft_load = 1;   
         add_rd = 0;
 
-        repeat (5) @(posedge clk);
+        #5;
         reset = 1;
 
         // FFT load
@@ -67,8 +73,7 @@ initial begin
 
         $display("Cycle | r0_add_a | r0_add_b | r1_add_a | r1_add_b | fft_done");
 
-        // record 600 cycles
-        for (int c = 0; c < 600; c++) begin
+        for (int c = 0; c < 100000; c++) begin
             @(posedge clk);
 
             $display("%5d | %9d | %9d | %9d | %9d | %8b",
@@ -85,4 +90,3 @@ initial begin
     end
 
 endmodule
-
