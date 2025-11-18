@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/addctrl.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/addgen.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/bitrev.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/butterfly.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/cmplxmult.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/fft.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/fftdec.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/fftfull.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/freqLUT.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/multiply.sv" "C:/Users/User/Desktop/Engr 155/e155-final-project/source/fft/twiddleLUT.sv"
+-path "C:/Users/User/Desktop/Engr 155/e155-final-project/fpga/radiant_project/fft_ramdq"
+-top fftfull
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

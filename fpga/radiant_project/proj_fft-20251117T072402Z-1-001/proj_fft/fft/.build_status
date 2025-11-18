@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildStatus>
     <Strategy name="Strategy1">
-        <Milestone name="Export" build_result="2" build_time="1763364792">
-            <Task name="Bitgen" build_result="2" update_result="0" update_time="1763364792"/>
+        <Milestone name="Export" build_result="0" build_time="1763449412">
+            <Task name="Bitgen" build_result="0" update_result="2" update_time="1763449412"/>
             <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Map" build_result="2" build_time="1763364700">
-            <Task name="Map" build_result="2" update_result="0" update_time="1763364700"/>
-            <Task name="MapTrace" build_result="2" update_result="0" update_time="1763364702"/>
+        <Milestone name="Map" build_result="0" build_time="1763449412">
+            <Task name="Map" build_result="0" update_result="2" update_time="1763449412"/>
+            <Task name="MapTrace" build_result="0" update_result="2" update_time="1763449412"/>
         </Milestone>
-        <Milestone name="PAR" build_result="2" build_time="1763364747">
-            <Task name="PAR" build_result="2" update_result="0" update_time="1763364747"/>
+        <Milestone name="PAR" build_result="0" build_time="1763449412">
+            <Task name="PAR" build_result="0" update_result="2" update_time="1763449412"/>
             <Task name="PostParVM" build_result="0" update_result="3" update_time="0"/>
-            <Task name="PARTrace" build_result="2" update_result="0" update_time="1763364755"/>
+            <Task name="PARTrace" build_result="0" update_result="2" update_time="1763449412"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="2" build_time="1763364682">
-            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1763364682"/>
-            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1763364683"/>
+        <Milestone name="Synthesis" build_result="0" build_time="1763449412">
+            <Task name="Lattice_Synthesis" build_result="0" update_result="2" update_time="1763449412"/>
+            <Task name="LSE_Compile" build_result="0" update_result="2" update_time="1763449412"/>
             <Task name="LSE_Lint" build_result="0" update_result="3" update_time="0"/>
-            <Task name="SynTrace" build_result="2" update_result="0" update_time="1763364683"/>
+            <Task name="SynTrace" build_result="0" update_result="2" update_time="1763449412"/>
             <Task name="SynVerilogSimFile" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
         <Milestone name="TOOL_Report" build_result="0" build_time="0">
@@ -38,8 +38,7 @@
         <Report name="proj_fft_fft.tws.html" last_build_time="1763364683" last_build_size="14700"/>
         <Report name="proj_fft_fft.udb" last_build_time="1763364747" last_build_size="158712"/>
         <Report name="proj_fft_fft_map.udb" last_build_time="1763364700" last_build_size="95507"/>
-        <Report name="proj_fft_fft_rtl.udb" last_build_time="1763364293" last_build_size="56549"/>
-        <Report name="proj_fft_fft_syn.udb" last_build_time="1763364682" last_build_size="73613"/>
+        <Report name="proj_fft_fft_rtl.udb" last_build_time="0" last_build_size="0"/>
+        <Report name="proj_fft_fft_syn.udb" last_build_time="0" last_build_size="0"/>
     </Strategy>
 </BuildStatus>
-                        

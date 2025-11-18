@@ -1,0 +1,636 @@
+----------------------------------------------------------------------
+Report for cell fftfull.TECH
+Register bits:  222 of 5280 (4.205%)
+I/O cells:      30
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        16          100.0
+                               CCU2       139          100.0
+                            FD1P3XZ       222          100.0
+                                 IB        29          100.0
+                               LUT4       715          100.0
+                              MAC16         6          100.0
+                                 OB         1          100.0
+SUB MODULES
+                            addctrl         1
+                             addgen         1
+                          butterfly         1
+                          cmplxmult         1
+                                fft         1
+                             fftdec         1
+                            freqLUT         1
+                           multiply         1
+                       multiply_U19         1
+                       multiply_U20         1
+                       multiply_U24         1
+                       multiply_U25         1
+                              ramdq         1
+                          ramdq_U26         1
+                          ramdq_U27         1
+                          ramdq_U28         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U21         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U22         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U23         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U16         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U17         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U18         1
+                         twiddleLUT         1
+                              TOTAL      1175
+----------------------------------------------------------------------
+Report for cell fft.v1
+Instance Path : fft
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        16          100.0
+                                FA2       107           77.0
+                            FD1P3XZ       156           70.3
+                               LUT4       474           66.3
+                              MAC16         3           50.0
+SUB MODULES
+                            addctrl         1
+                             addgen         1
+                          butterfly         1
+                          cmplxmult         1
+                           multiply         1
+                       multiply_U19         1
+                       multiply_U20         1
+                              ramdq         1
+                          ramdq_U26         1
+                          ramdq_U27         1
+                          ramdq_U28         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U21         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U22         1
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U23         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U16         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U17         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U18         1
+                         twiddleLUT         1
+                              TOTAL       798
+----------------------------------------------------------------------
+Report for cell encrypted_cell.<NoName>
+Instance Path : encrypted_instance
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell ramdq.v1
+Instance Path : fft.ram1_b
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+                              TOTAL        77
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+                              TOTAL        76
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+                              TOTAL        75
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[4].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[3].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[2].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[1].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq").v1
+Instance Path : fft.ram1_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[0].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_U26.v1
+Instance Path : fft.ram1_a
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U21         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U16         1
+                              TOTAL        75
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U21.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U16         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U16.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13         1
+                              TOTAL        73
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U13.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main.inst0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0         1
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U0.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[3].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U1.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[2].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ        16            7.2
+                               LUT4        16            2.2
+                              TOTAL        33
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U2.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[1].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U3.v1
+Instance Path : fft.ram1_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[0].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ        16            7.2
+                               LUT4        16            2.2
+                              TOTAL        33
+----------------------------------------------------------------------
+Report for cell ramdq_U27.v1
+Instance Path : fft.ram0_b
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U22         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U17         1
+                              TOTAL        77
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U22.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U17         1
+                              TOTAL        76
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U17.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14         1
+                              TOTAL        75
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U14.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        33            4.6
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0100000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U4.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[4].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U5.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[3].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U6.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[2].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U7.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[1].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U8.v1
+Instance Path : fft.ram0_b.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[0].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_U28.v1
+Instance Path : fft.ram0_a
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U23         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U18         1
+                              TOTAL        75
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U23.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15         1
+ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U18         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_main(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U18.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15         1
+                              TOTAL        73
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_inst(FAMILY="iCE40UP",ADDR_DEPTH=512,ADDR_WIDTH=9,DATA_WIDTH=36,INIT_FILE_FORMAT="hex",BYTE_SIZE=8,BYTE_WIDTH=4,OUTPUT_CLK_EN=1,MEM_SIZE="36,512",MEM_ID="ramdq")_U15.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main.inst0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           25.0
+                            FD1P3XZ        32           14.4
+                               LUT4        32            4.5
+SUB MODULES
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10         1
+ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9         1
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b011000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U9.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[3].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b010000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U10.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[2].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b01000,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U11.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[1].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdq_ipgen_lscc_ram_dq_core(FAMILY="iCE40UP",DATA_WIDTH=32'b01000,ADDR_WIDTH=32'b01001,OUTREG="reg",GSR="",OUTPUT_CLK_EN=1,POSx=32'b0,POSy=32'b0,SINGLE_EBR=1'b0,MEM_SIZE="36,512",MEM_ID="ramdq")_U12.v1
+Instance Path : fft.ram0_a.lscc_ram_dq_inst.mem_main.inst0.PRIM_MODE.xADDR[0].xDATA[0].no_mem_file.mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            6.2
+                            FD1P3XZ         8            3.6
+                               LUT4         8            1.1
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell butterfly.v1
+Instance Path : fft.butterfly_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        87           62.6
+                               LUT4        80           11.2
+                              MAC16         3           50.0
+SUB MODULES
+                          cmplxmult         1
+                           multiply         1
+                       multiply_U19         1
+                       multiply_U20         1
+                              TOTAL       174
+----------------------------------------------------------------------
+Report for cell cmplxmult.v1
+Instance Path : fft.butterfly_inst.tw_mult
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        53           38.1
+                               LUT4        16            2.2
+                              MAC16         3           50.0
+SUB MODULES
+                           multiply         1
+                       multiply_U19         1
+                       multiply_U20         1
+                              TOTAL        75
+----------------------------------------------------------------------
+Report for cell multiply.v1
+Instance Path : fft.butterfly_inst.tw_mult.mult4
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9            6.5
+                              MAC16         1           16.7
+                              TOTAL        10
+----------------------------------------------------------------------
+Report for cell multiply_U19.v1
+Instance Path : fft.butterfly_inst.tw_mult.mult2
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        18           12.9
+                              MAC16         1           16.7
+                              TOTAL        19
+----------------------------------------------------------------------
+Report for cell multiply_U20.v1
+Instance Path : fft.butterfly_inst.tw_mult.mult1
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        26           18.7
+                              MAC16         1           16.7
+                              TOTAL        27
+----------------------------------------------------------------------
+Report for cell addctrl.v1
+Instance Path : fft.addctrl_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        20           14.4
+                            FD1P3XZ        28           12.6
+                               LUT4       152           21.3
+SUB MODULES
+                             addgen         1
+                              TOTAL       201
+----------------------------------------------------------------------
+Report for cell addgen.v1
+Instance Path : fft.addctrl_inst.addgen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        15           10.8
+                            FD1P3XZ        18            8.1
+                               LUT4       114           15.9
+                              TOTAL       147
+----------------------------------------------------------------------
+Report for cell freqLUT.v1
+Instance Path : freqLUT
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4       151           21.1
+                              TOTAL       151
+----------------------------------------------------------------------
+Report for cell fftdec.v1
+Instance Path : fftdec
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        32           23.0
+                            FD1P3XZ        66           29.7
+                               LUT4        78           10.9
+                              MAC16         3           50.0
+SUB MODULES
+                       multiply_U24         1
+                       multiply_U25         1
+                              TOTAL       181
+----------------------------------------------------------------------
+Report for cell multiply_U24.v1
+Instance Path : fftdec.mag_real
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              MAC16         1           16.7
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell multiply_U25.v1
+Instance Path : fftdec.mag_img
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        27           19.4
+                              MAC16         1           16.7
+                              TOTAL        28

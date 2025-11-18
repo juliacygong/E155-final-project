@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LatticeIPSummary>
+    <IpInfo IP_Module_Name="ramdq" IP_Name="RAM_DQ" License_Feature="-" License_Status="-" Vendor="latticesemi.com" Version="2.4.0" Vlnv="latticesemi.com:module:ram_dq:2.4.0"/>
+</LatticeIPSummary>
