@@ -1,0 +1,19 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2024.2.0.3.0
+Sat Nov 15 19:06:37 2025
+
+WARNING <71003020> - Top module port 'din[15]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[14]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[13]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[12]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[11]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[10]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[9]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[8]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[7]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[6]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[5]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[4]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[3]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[2]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[1]' does not connect to anything.
+WARNING <71003020> - Top module port 'din[0]' does not connect to anything.

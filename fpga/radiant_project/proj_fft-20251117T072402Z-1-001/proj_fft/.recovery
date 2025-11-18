@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="2025.1.0.39.0" title="proj_fft" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="fft">
+    <Options/>
+    <Implementation title="fft" dir="fft" description="fft" synthesis="lse" default_strategy="Strategy1">
+        <Options top="fftfull"/>
+        <Source name="source/fft/fft.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/addgen.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/addctrl.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/bitrev.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/butterfly.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/cmplxmult.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/ram2p.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/twiddleLUT.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/multiply.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/freqLUT.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/fftdec.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/fftfull.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog" top_module="fftfull"/>
+        </Source>
+        <Source name="source/fft/ram1p.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/testbench_fullfft.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="ramdualpt/ramdualpt.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ramdq/ramdq.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="source/fft/testbench_addgen.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/testbench_fft.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/testbench_fftdec.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="source/fft/testbench_addctrl.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="proj_fft1.sty"/>
+</RadiantProject>
