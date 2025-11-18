@@ -40,7 +40,31 @@ assign img_write_a = write_a[BIT_WIDTH - 1:0]; // bits 15-0
 assign real_write_b = write_b[2*BIT_WIDTH - 1: BIT_WIDTH]; // bits 31-16
 assign img_write_b = write_b[BIT_WIDTH - 1:0]; // bits 15-0
 
+logic mem_write0_d, mem_write1_d;
+logic [N-1:0] r0_add_a_d, r0_add_b_d;
+logic [N-1:0] r1_add_a_d, r1_add_b_d;
 
+// delay memory read by one cycle since RAM is synchronous read
+always_ff @(posedge clk) begin
+    if (reset) begin
+        mem_write0_d <= 0;
+        mem_write1_d <= 0;
+        r0_add_a_d   <= 0;
+        r0_add_b_d   <= 0;
+        r1_add_a_d   <= 0;
+        r1_add_b_d   <= 0;
+    end else begin
+        mem_write0_d <= mem_write0;
+        mem_write1_d <= mem_write1;
+        
+        // Pass the addresses through the delay register
+        r0_add_a_d   <= r0_add_a;
+        r0_add_b_d   <= r0_add_b;
+        r1_add_a_d   <= r1_add_a;
+        r1_add_b_d   <= r1_add_b;
+    end
+end
+	
 // BFU memory ping pong logic
 // read_sel is dependent on LSB of fft level, so at level 0, read_sel = 0
 // at level 0, will be writing to RAM1 and reading from RAM0
@@ -60,9 +84,9 @@ ramdualpt ram0_a(.wr_clk_i(clk),
 				.wr_clk_en_i(reset), 
 				.rd_en_i(~read_sel), 
 				.rd_clk_en_i(reset), 
-				.wr_en_i((mem_write0)), 
+				 .wr_en_i((mem_write0)), 
 				.wr_data_i({real_write_a, img_write_a}), 
-				.wr_addr_i(r0_add_a), 
+				 .wr_addr_i(r0_add_a), 
 				.rd_addr_i(r0_add_a), 
 				.rd_data_o(r0_out_a));
 
@@ -152,5 +176,6 @@ assign out_b = {real_bp, img_bp};
 // if N levels are odd, then data in RAM1 since starts writing to RAM1 at level 0
 // if N levels are even, data in RAM0
 assign dout = (N % 2) ? r1_out_a : r0_out_a;
+
 
 endmodule
