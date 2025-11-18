@@ -28,11 +28,11 @@ module testbench_fftfull();
     fftfull #(.BIT_WIDTH(BIT_WIDTH), .N(N), .FFT_SIZE(FFT_SIZE))
         dut (.clk(clk),
              .reset(reset),
-             .fft_start(fft_start),
+			 .fft_start(fft_start),
              .fft_load(fft_load),
              .add_rd(add_rd),
              .din(din),
-             .note(note));
+             .noted(noted));
 
     // Clock generation
     always begin
@@ -58,19 +58,18 @@ module testbench_fftfull();
 
     // Stimulus
     initial begin
-        reset = 1;
-        fft_start = 0;
+        reset = 0;
         fft_load = 0;
         add_rd = 0;
         din = 0;
-        #20;
+        #10;
 
-        reset = 0;
-        #20;
+        reset = 1;
+        #1;
 
         // Begin loading FFT input
         fft_load = 1;
-        fft_start = 1;
+        fft_start = 0;
 
         for (i = 0; i < FFT_SIZE; i = i + 1) begin
             add_rd = i[N-1:0];
@@ -79,7 +78,7 @@ module testbench_fftfull();
         end
 
         fft_load = 0;
-        fft_start = 0;
+        fft_start = 1;
 
         $display("All input samples loaded, waiting for FFT + decoding to complete...");
 
