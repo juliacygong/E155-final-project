@@ -54,9 +54,10 @@ assign real_b = b[2*BIT_WIDTH - 1:BIT_WIDTH];
 assign img_b = b[BIT_WIDTH - 1:0];
 
 // RAM0 and RAM1
-
 ramdq ram0_a(.clk_i(clk),
 				 .rst_i(reset),
+				 .clk_en_i(reset), 
+				 .rd_out_clk_en_i(~read_sel),
 				 .wr_en_i(mem_write0),
 				 .wr_data_i({real_write_a, img_write_a}),
 				 .addr_i(r0_add_a),
@@ -64,6 +65,8 @@ ramdq ram0_a(.clk_i(clk),
 
 ramdq ram0_b(.clk_i(clk),
 				 .rst_i(reset),
+				 .clk_en_i(reset), 
+				 .rd_out_clk_en_i(~read_sel),
 				 .wr_en_i(mem_write0),
 				 .wr_data_i({real_write_b, img_write_b}),
 				 .addr_i(r0_add_b),
@@ -71,6 +74,8 @@ ramdq ram0_b(.clk_i(clk),
 
 ramdq ram1_a(.clk_i(clk),
 				 .rst_i(reset),
+				 .clk_en_i(reset), 
+				 .rd_out_clk_en_i(read_sel),
 				 .wr_en_i(mem_write1),
 				 .wr_data_i({real_write_a, img_write_a}),
 				 .addr_i(r1_add_a),
@@ -78,6 +83,8 @@ ramdq ram1_a(.clk_i(clk),
 
 ramdq ram1_b(.clk_i(clk),
 				 .rst_i(reset),
+				 .clk_en_i(reset), 
+				 .rd_out_clk_en_i(read_sel),
 				 .wr_en_i(mem_write1),
 				 .wr_data_i({real_write_b, img_write_b}),
 				 .addr_i(r1_add_b),

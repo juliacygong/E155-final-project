@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="ice40tp" date="2025 11 17 19:47:30" device="iCE40UP5K" device_int="itpa08" display_module="RAM_DQ" display_vendor="latticesemi.com" family="iCE40UP" gen_platform="Radiant" gen_platform_version="2024.2.0.3.0" generator="ipgen" library="module" module="ram_dq" name="ramdq" operation="Industrial" package="SG48" package_int="SG48" partnumber="iCE40UP5K-SG48I" source_format="Verilog" speed="High-Performance_1.2V" speed_int="6" vendor="latticesemi.com" version="2.4.0">
+ <Package>
+  <File modified="2025 11 17 19:47:30" name="rtl/ramdq_bb.v" type="black_box_verilog"/>
+  <File modified="2025 11 17 19:47:30" name="ramdq.cfg" type="cfg"/>
+  <File modified="2025 11 17 19:47:30" name="misc/ramdq_tmpl.v" type="template_verilog"/>
+  <File modified="2025 11 17 19:47:30" name="misc/ramdq_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2025 11 17 19:47:30" name="rtl/ramdq.v" type="top_level_verilog"/>
+  <File modified="2025 11 17 19:47:30" name="constraints/ramdq.ldc" type="timing_constraints"/>
+  <File modified="2025 11 17 19:47:30" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2025 11 17 19:47:30" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2025 11 17 19:47:30" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2025 11 17 19:47:30" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2023 12 19 05:43:31" name="testbench/tb_top.v" type="testbench_verilog"/>
+ </Package>
+</RadiantModule>
