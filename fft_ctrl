@@ -1,0 +1,121 @@
+// fft_control
+
+module fft_ctrl#(parameter BIT_WIDTH = 16, N = 9, FFT_SIZE = 512, FS = 5000)
+			    (input logic reset,
+				 input logic A_note,
+				 output logic anode1, anode2,
+				 output logic [6:0] seg,
+				 output logic sharp,
+				 output logic led_load, led_start
+				);
+				
+logic [23:0] counter;
+logic [3:0] s, note_name, octave;
+logic clk, select;
+logic note_dec;
+
+// Internal high-speed oscillator (freq = 48 MHz)
+	HSOSC #(.CLKHF_DIV(2'b10)) 
+	      hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
+		  
+// counter
+always_ff @(posedge clk) begin
+		if(~reset) counter <= 1'b0;
+		else counter <= counter + 24'd100;
+end
+
+assign select = counter[23];
+
+// s1 
+
+
+logic fft_load, fft_start;
+logic fft_done;
+logic [N - 1:0] add_rd;
+logic [7:0] note;
+logic [BIT_WIDTH - 1:0] din_out;
+
+always_ff @(posedge clk) begin
+	if (~reset | A_note) begin
+		add_rd <= 0;
+	end
+	else if (add_rd >= (FFT_SIZE -1)) begin
+		add_rd <= 0;
+	end
+	else if (fft_load | ~A_note) begin
+		add_rd <= add_rd + 1'b1;
+	end
+	else begin
+		add_rd <= add_rd;
+	end
+end
+
+always_ff @(posedge clk) begin
+	if (~reset | A_note) begin
+		fft_load <= 0;
+		fft_start <= 0;
+	end
+	else if (note_dec) begin
+		fft_load <= 1;
+		fft_start <= 0;
+	end
+	else if (add_rd >= (FFT_SIZE -1)) begin
+		fft_load <= 0;
+		fft_start <= 1;
+	end
+	else if (~A_note & ~fft_start) begin
+		fft_load <= 1'b1;
+		fft_start <= 0;
+	end
+	else begin
+		fft_load <= fft_load;
+		fft_start <= fft_start;
+	end
+end
+
+dfiveshLUT LUT(add_rd, din_out);
+				
+fftfull #(BIT_WIDTH, N, FFT_SIZE, FS)
+     fftfull(clk, reset,
+			 fft_load, fft_start,
+			 din_out, 
+			 add_rd, 
+			 note,
+			 fft_done,
+			 note_dec);
+			 
+logic [7:0] note_hold;
+always_ff @(posedge clk) begin
+	if (~reset | A_note) begin
+		note_hold <= 0;
+	end
+	else if (note_dec && (note != 8'd0)) begin
+            note_hold <= note;
+        end
+end
+
+
+	
+//assign note_name = note_hold[7:4];
+//assign octave = {1'b0, note_hold[3:1]};
+//assign sharp = note_hold[0];
+
+assign note_name = note[7:4];
+assign octave = {1'b0, note[3:1]};
+assign sharp = note[0];
+
+//assign note_name = (~A_note) ? note_hold[7:4] : 4'b0;
+//assign octave = (~A_note) ? {1'b0, note_hold[3:1]} : 4'b0;
+//assign sharp = (~A_note) ? note_hold[0] : 1'b0;
+
+
+mux mux(select, octave, note_name, s, anode1, anode2);
+
+// seg_display disp(s, seg);
+
+assign seg = note_hold[7:1];
+
+assign led_load = fft_load;
+assign led_start = fft_start;
+
+endmodule
