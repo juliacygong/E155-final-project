@@ -39,7 +39,7 @@ void initSPI(int br, int cpol, int cpha) {
   // in CR2
   // configure DS[3:0] to select data length for transfer
   // SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0x7);
-  SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0xF); // modified from original to 16-bit data frame
+  SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0x7); // modified from original to 8-bit data frame
 
   // configure SSOE
   SPI1->CR2 |= _VAL2FLD(SPI_CR2_SSOE, 1); // SPi interface cannot work with multiple controllers

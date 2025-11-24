@@ -25,7 +25,12 @@ void initADC(void) {
 
     // Configure ADC
     ADC1->CFGR = 0; // single conversion, right alignment
-    ADC1->CFGR |= ADC_CFGR_CONT | ADC_CFGR_DMAEN | ADC_CFGR_DMACFG;
+    ADC1->CFGR |= ADC_CFGR_DMAEN | ADC_CFGR_DMACFG;
+    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_RES, 0b10); // set 8-bit resolution
+    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_EXTEN, 0b01); // set to rising edge
+    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_EXTSEL, 0b1101); // EXT13: TIM6_TRGO
+    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMAEN, 0b1); // DMA enable
+    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMACFG, 0b1); // DMA circular mode
 
     // Select channel 5 (PA0)
     ADC1->SQR1 = (5 << ADC_SQR1_SQ1_Pos);

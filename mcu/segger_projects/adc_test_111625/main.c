@@ -4,24 +4,28 @@
 
 
 #define LED_PIN PA6  // On-board LED (for debug)
-#define ADC_PIN PA0  // Analog input pin
+#define ADC_PIN PA2  // Analog input pin
 
 int main(void) {
     // Enable GPIOA clock
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 
-    init_delay();
     // Configure LED pin as output
     pinMode(LED_PIN, GPIO_OUTPUT);
+    initTIM6();
 
     // Initialize Peripherals
-    //initSPI(0b010, 0, 0);  // BR=0b010, CPOL=0, CPHA=0
+    initSPI(0b010, 0, 0);  // BR=0b010, CPOL=0, CPHA=0
     printf("hi");
-    initADC();
     initADC_DMA();
+    initADC();
 
-    // Start continuous ADC-DMA conversions
+
+    // Start continuous ADC-DMA conversions                                                                                                                                                                                                                                                  +            
+
+
+
     ADC1->CR |= ADC_CR_ADSTART;
 
     printf("ADC + DMA init done");

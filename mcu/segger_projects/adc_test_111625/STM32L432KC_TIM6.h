@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <math.h>
+#include "STM32L432KC.h"
 
 #ifndef STM32L4_TIM6_H
 #define STM32L4_TIM6_H
@@ -31,7 +32,7 @@ typedef struct{
 #define TIM6 ((TIM6_ad *)TIM6_BASE)
 
 // delays
-void init_delay(void);
+void initTIM6(void);
 void delay(int ms);
 
 #endif
