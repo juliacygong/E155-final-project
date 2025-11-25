@@ -5,49 +5,80 @@ uint8_t spiBuf[BUF_LEN];
 
 volatile uint8_t *ADCptr = adcBuf;
 volatile uint8_t *SPIptr = spiBuf; 
-volatile uint8_t SPIReady = 1;
+volatile uint8_t SPIReady = 0;
 
 volatile uint8_t spiBusy = 0;
 extern volatile uint8_t sampling;
 
 void initADC_DMA(void) {
+    // Set DMA clock
     RCC->AHB1ENR |= RCC_AHB1ENR_DMA1EN;
 
-    // 1. Disable DMA to configure
+    // Make sure AHB Prescaler is set to divide by 1 field cleared
+    RCC->CFGR &= ~(RCC_CFGR_HPRE);
+
+    // Disable DMA to configure
     DMA1_Channel1->CCR &= ~DMA_CCR_EN;
 
-    // 2. Select ADC request (C1S = 0000 for ADC1 on Channel 1)
+    // Select ADC request (C1S = 0000 for ADC1 on Channel 1)
     DMA1_CSELR->CSELR &= ~DMA_CSELR_C1S;
 
-    // 3. Set Addresses
-    DMA1_Channel1->CPAR = (uint32_t)&ADC1->DR;
-    DMA1_Channel1->CMAR = (uint32_t)ADCptr; // Start with buffer1
+    // Set Peripheral Address
+    DMA1_Channel1->CPAR = _VAL2FLD(DMA_CPAR_PA, (uint32_t)&ADC1->DR);
+    // Set Memory Address
+    DMA1_Channel1->CMAR = (uint32_t)ADCptr; // Start with ADCptr
 
-    // 4. Set Data Length
+    // Set Data Length
     DMA1_Channel1->CNDTR = BUF_LEN;
 
-    // 5. Configure Control Register
-    // PL = High (10)
-    // MINC = 1 (Memory Increment)
-    // CIRC = 0 (Normal mode - we manually reload in ISR for ping-pong)
-    // TCIE = 1 (Transfer Complete Interrupt)
-    // DIR = 0 (Peripheral to Memory)
-    // MSIZE/PSIZE = 00 (8-bit)
-    DMA1_Channel1->CCR = 
-        _VAL2FLD(DMA_CCR_PL, 0b10) |
-        DMA_CCR_MINC |
-        DMA_CCR_TCIE; 
-        // Note: CIRC is OFF. We want it to stop so we can swap pointers.
+    // Reset DMA channel configuration
+    DMA1_Channel1->CCR &= ~(0xFFFFFFFF);
 
-    // 6. Clear Interrupt Flags
-    DMA1->IFCR = DMA_IFCR_CGIF1;
+    // The channel priority
+    DMA1_Channel1->CCR |= _VAL2FLD(DMA_CCR_PL, 3); // Channel priority very high
+    
+    // The data transfer direction (DIR=0 implies peripheral-to-memory)
+    DMA1_Channel1->CCR &= ~(DMA_CCR_DIR);
 
-    // 7. Enable Interrupts in NVIC
-    NVIC_SetPriority(DMA1_Channel1_IRQn, 1);
-    NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+    // The Peripheral and Memory Incremented mode
+    DMA1_Channel1->CCR &= ~(DMA_CCR_PINC); // Disable peripheral increment mode
+    DMA1_Channel1->CCR |= (DMA_CCR_MINC); // Enable memory increment mode
 
-    // 8. Enable DMA
-    DMA1_Channel1->CCR |= DMA_CCR_EN;
+    // The Peripheral and Memory data size
+    DMA1_Channel1->CCR |= _VAL2FLD(DMA_CCR_MINC, 1); // Memory data size 16 bits
+
+    // The interrupt enable for full transfer
+     DMA1_Channel1->CCR |= DMA_CCR_TCIE;
+
+    // FINALLY, activate the channel by setting EN bit in DMA_CCRx
+    DMA1_Channel1->CCR |= (DMA_CCR_EN);
+
+    //// Enable DMA1 Channel 1 interrupt in NVIC
+    //NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+    //NVIC_SetPriority(DMA1_Channel1_IRQn, 0);
+
+    //// Configure Control Register
+    //// PL = High (10)
+    //// MINC = 1 (Memory Increment)
+    //// CIRC = 0 (Normal mode - we manually reload in ISR for ping-pong)
+    //// TCIE = 1 (Transfer Complete Interrupt)
+    //// DIR = 0 (Peripheral to Memory)
+    //// MSIZE/PSIZE = 00 (8-bit)
+    //DMA1_Channel1->CCR = 
+    //    _VAL2FLD(DMA_CCR_PL, 0b10) |
+    //    DMA_CCR_MINC |
+    //    DMA_CCR_TCIE; 
+    //    // Note: CIRC is OFF. We want it to stop so we can swap pointers.
+
+    //// 6. Clear Interrupt Flags
+    //DMA1->IFCR = DMA_IFCR_CGIF1;
+
+    //// 7. Enable Interrupts in NVIC
+    //NVIC_SetPriority(DMA1_Channel1_IRQn, 1);
+    //NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+
+    //// 8. Enable DMA
+    //DMA1_Channel1->CCR |= DMA_CCR_EN;
 }
 
 void DMA1_Channel1_IRQHandler(void) {
@@ -57,6 +88,11 @@ void DMA1_Channel1_IRQHandler(void) {
 
         // 1. Disable DMA to modify CMAR/CNDTR
         DMA1_Channel1->CCR &= ~DMA_CCR_EN;
+        
+        // Make sure SPI is complete before switching buffers
+        if (!SPIReady) {
+          return;
+        }
 
         // 2. Swap Pointers
         if (ADCptr == adcBuf) {
@@ -67,8 +103,9 @@ void DMA1_Channel1_IRQHandler(void) {
             SPIptr = spiBuf; // Main should send buffer2
         }
 
-        // 3. Signal Main Loop
-        SPIReady = 1;
+        
+        
+        SPIReady = 0;
 
         // 4. Reconfigure DMA for the new buffer
         DMA1_Channel1->CMAR = (uint32_t)ADCptr;
@@ -76,15 +113,19 @@ void DMA1_Channel1_IRQHandler(void) {
 
         ADC1->ISR |= ADC_ISR_OVR;
 
-        // 5. Re-enable DMA
-        // Only re-enable if we are still sampling
-        if (sampling) {
-            DMA1_Channel1->CCR |= DMA_CCR_EN;
-        }
+        //// 5. Re-enable DMA
+        //// Only re-enable if we are still sampling
+        //if (sampling) {
+        //    DMA1_Channel1->CCR |= DMA_CCR_EN;
+        //}
+
+        //SPIReady = 1;
+
+        // Refill DMA CNDTR
+        DMA1_Channel1->CNDTR |= BUF_LEN;
+
+        // Re-enable DMA channel
+        DMA1_Channel1->CCR |= DMA_CCR_EN;
     }
     
-    // Handle errors (optional but good practice)
-    if (DMA1->ISR & DMA_ISR_TEIF1) {
-        DMA1->IFCR = DMA_IFCR_CTEIF1;
-    }
 }

@@ -2,13 +2,13 @@
 
 #include "STM32L432KC.h"
 #define LED_PIN PA6  // On-board LED (for debug)
-#define ADC_PIN PA5  // Analog input pin
 #define BUTTON_PIN PA7 // button for start/stop transcription
 
 extern volatile uint8_t *SPIptr;
 extern volatile uint8_t SPIReady;
 
 volatile uint8_t sampling = 0; 
+uint8_t testbuf[4] = {0xAA, 0xBB, 0xCC, 0xDD};
 
 int main(void) {
     configureFlash();
@@ -18,6 +18,11 @@ int main(void) {
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 
+    // Enable Pins
+    gpioEnable(GPIO_PORT_A);
+    gpioEnable(GPIO_PORT_B);
+    gpioEnable(GPIO_PORT_C);
+
     // GPIO Setup
     pinMode(LED_PIN, GPIO_OUTPUT);
     pinMode(BUTTON_PIN, GPIO_INPUT);
@@ -25,7 +30,13 @@ int main(void) {
 
     // Init
     initTIM6();  
-    initSPI(0b100, 1, 0); 
+    initSPI(0b100, 0, 1); 
+    // Enable global interrupts
+    //__enable_irq();
+    // Enable DMA1 Channel 1 interrupt in NVIC
+    //NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+    //NVIC_SetPriority(DMA1_Channel1_IRQn, 0);
+
     initADC_DMA(); 
     initADC();    
    
@@ -38,48 +49,48 @@ int main(void) {
 
     while (1) {
         // Button Logic
-        uint8_t button = digitalRead(BUTTON_PIN);
-        //printf("button: %d \n", button);
-        if (prevButton == 1 && button == 0) { 
-            delay(5); 
-            if (digitalRead(BUTTON_PIN) == 0) {
-                if (!sampling) {
-                    printf("Start Transcription\n");
-                    sampling = 1;
-                    digitalWrite(LED_PIN, 1);
-                    start_sampling(); 
-                } else {
-                    printf("Stop Transcription\n");
-                    sampling = 0;
-                    digitalWrite(LED_PIN, 0);
-                    stop_sampling(); 
-                }
-            }
-        }
-        prevButton = button;
+        //uint8_t button = digitalRead(BUTTON_PIN);
+        ////printf("button: %d \n", button);
+        //if (prevButton == 1 && button == 0) { 
+        //    //delay(5); 
+        //    if (digitalRead(BUTTON_PIN) == 0) {
+        //        if (!sampling) {
+        //            printf("Start\n");
+        //            sampling = 1;
+        //            //digitalWrite(LED_PIN, 1);
+        //            start_sampling(); 
+        //        } else {
+        //            printf("Stop\n");
+        //            sampling = 0;
+        //            //digitalWrite(LED_PIN, 0);
+        //            //stop_sampling(); 
+        //        }
+        //    }
+        //}
+        //prevButton = button;
         
         // If DMA finished start SPI transaction
-        if (sampling && SPIReady) {
+        sampling = 1;
+        if (sampling) {
           SPIReady = 0;
 
-          uint8_t *currentBuffer = (uint8_t *)SPIptr;
+          if (!SPIReady) {
 
-          digitalWrite(SPI_CS, PIO_LOW); // Select Peripheral
+
+          uint8_t *currentBuffer = (uint8_t *)SPIptr;
             // Send the entire buffer that SPIptr is currently pointing to
             for (int i = 0; i < BUF_LEN; i++) {
-                spiSendReceive(currentBuffer[i]);
+              digitalWrite(SPI_CS, PIO_LOW); // Select Peripheral
+              spiSendReceive(currentBuffer[i]);
                // printf("Starting SPI \n");
+               digitalWrite(SPI_CS, PIO_HIGH); // Deselect Peripheral              
            }
-
-          while(SPI1->SR & SPI_SR_BSY);
-
-          digitalWrite(SPI_CS, PIO_HIGH); // Deselect Peripheral
           
-            
-            // Clear
-            SPIReady = 0; 
 
-            
+            // Clear
+            SPIReady = 1; 
+
+            }
         }
     }
 }

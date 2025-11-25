@@ -17,6 +17,7 @@ void initSPI(int br, int cpol, int cpha) {
   pinMode(SPI_CLK, GPIO_ALT);
 
   // setting up alternative GPIO modes
+  GPIOB->AFR[0] &= ~((0xF << 12) | (0xF << 16) | (0xF << 20));
   GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL3, 5);
   GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL4, 5);
   GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL5, 5);
@@ -45,8 +46,8 @@ void initSPI(int br, int cpol, int cpha) {
   // SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0x7);
   SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0x7); // modified from original to 8-bit data frame
 
-  // configure SSOE
-  SPI1->CR2 |= _VAL2FLD(SPI_CR2_SSOE, 1); // SPi interface cannot work with multiple controllers
+  // Clear SSOE for manual CS control
+  SPI1->CR2 &= ~SPI_CR2_SSOE;
 
   // configure FRXTH bit
   SPI1->CR2 |= _VAL2FLD(SPI_CR2_FRXTH, 1); // RXNE event generated if FIFO level is >= 1/4 (8 bit)

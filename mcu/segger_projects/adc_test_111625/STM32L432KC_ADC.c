@@ -5,8 +5,8 @@ void initADC(void) {
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
 
     // TODO: choose pin and modify
-    // Set PA0 to analog mode
-    GPIOA->MODER |= GPIO_MODER_MODE5; // 11: analog mode
+    // Set PA5 to analog mode
+    pinMode(ADC_PIN, GPIO_ANALOG); // analog mode
     GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD5; // no pull-up/down
 
     // Enable ADC clock
@@ -29,8 +29,8 @@ void initADC(void) {
     ADC1->CFGR |= _VAL2FLD(ADC_CFGR_RES, 0b10); // set 8-bit resolution
     ADC1->CFGR |= _VAL2FLD(ADC_CFGR_EXTEN, 0b01); // set to rising edge
     ADC1->CFGR |= _VAL2FLD(ADC_CFGR_EXTSEL, 0b1101); // EXT13: TIM6_TRGO
-    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMAEN, 0b1); // DMA enable
-    ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMACFG, 0b1); // DMA circular mode
+    //ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMAEN, 0b1); // DMA enable
+    //ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMACFG, 0b1); // DMA circular mode
 
     // Select channel 10 (PA5)
     ADC1->SQR1 = (10 << ADC_SQR1_SQ1_Pos);
