@@ -6,8 +6,8 @@ void initADC(void) {
 
     // TODO: choose pin and modify
     // Set PA0 to analog mode
-    GPIOA->MODER |= GPIO_MODER_MODE0; // 11: analog mode
-    GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD0; // no pull-up/down
+    GPIOA->MODER |= GPIO_MODER_MODE5; // 11: analog mode
+    GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD5; // no pull-up/down
 
     // Enable ADC clock
     RCC->AHB2ENR |= RCC_AHB2ENR_ADCEN;
@@ -32,8 +32,8 @@ void initADC(void) {
     ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMAEN, 0b1); // DMA enable
     ADC1->CFGR |= _VAL2FLD(ADC_CFGR_DMACFG, 0b1); // DMA circular mode
 
-    // Select channel 5 (PA0)
-    ADC1->SQR1 = (5 << ADC_SQR1_SQ1_Pos);
+    // Select channel 10 (PA5)
+    ADC1->SQR1 = (10 << ADC_SQR1_SQ1_Pos);
 
     // disable deep-powder down mode
     ADC1->CR &= ~(ADC_CR_DEEPPWD);
@@ -45,9 +45,9 @@ void initADC(void) {
     // Calibrate ADC
     ADC1->CR |= ADC_CR_ADCAL;
 
-    printf("start cal");
+    printf("start cal \n");
     while (ADC1->CR & ADC_CR_ADCAL);
-    printf("end_cal");
+    printf("end_cal \n");
     delay(10);
 
     // Enable ADC
@@ -57,8 +57,31 @@ void initADC(void) {
     while (!(ADC1->ISR & ADC_ISR_ADRDY));
 }
 
-uint16_t readADC(void) {
+uint8_t readADC(void) {
     ADC1->CR |= ADC_CR_ADSTART; // start conversion
     while (!(ADC1->ISR & ADC_ISR_EOC)); // wait until done
-    return (uint16_t)ADC1->DR; // return 12-bit result
+    return (uint8_t)ADC1->DR; // return 8-bit result
+}
+
+
+void start_sampling(void) {
+    // Clear
+    ADC1->ISR |= ADC_ISR_OVR;
+
+    // ADC respond to TIM6 TRGO
+    ADC1->CR |= ADC_CR_ADSTART;
+
+    // Start TIM6 (5 kHz)
+    TIM6->CR1 |= TIM_CR1_CEN;
+}
+
+void stop_sampling(void) {
+    // Stop timer so no more triggers
+    TIM6->CR1 &= ~TIM_CR1_CEN;
+
+    // Stop ADC conversion
+    if (ADC1->CR & ADC_CR_ADSTART) {
+        ADC1->CR |= ADC_CR_ADSTP;
+        while (ADC1->CR & ADC_CR_ADSTP);
+    }
 }

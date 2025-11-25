@@ -4,6 +4,11 @@
 #include "STM32L432KC.h"
 
 void initADC(void);
-uint16_t readADC(void);
+
+uint8_t readADC(void);
+
+void start_sampling(void);
+
+void stop_sampling(void);
 
 #endif

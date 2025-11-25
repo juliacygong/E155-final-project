@@ -21,7 +21,7 @@ void initSPI(int br, int cpol, int cpha) {
   GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL4, 5);
   GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL5, 5);
 
-  digitalWrite(SPI_CS, PIO_LOW); // cs is active high
+  digitalWrite(SPI_CS, PIO_HIGH); // cs is active low
 
   SPI1->CR1 = 0;
 
@@ -36,6 +36,10 @@ void initSPI(int br, int cpol, int cpha) {
   // configure MSTR bit
   SPI1->CR1 |= _VAL2FLD(SPI_CR1_MSTR, 1);
 
+  // want to control CS manually with digitalWrite
+  SPI1->CR1 |= SPI_CR1_SSM; 
+  SPI1->CR1 |= SPI_CR1_SSI;
+
   // in CR2
   // configure DS[3:0] to select data length for transfer
   // SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0x7);
@@ -46,6 +50,8 @@ void initSPI(int br, int cpol, int cpha) {
 
   // configure FRXTH bit
   SPI1->CR2 |= _VAL2FLD(SPI_CR2_FRXTH, 1); // RXNE event generated if FIFO level is >= 1/4 (8 bit)
+
+  SPI1->CR1 |= SPI_CR1_SSM | SPI_CR1_SSI;
   
   // configure SPI enable after setting up all SPI
   SPI1->CR1 |= _VAL2FLD(SPI_CR1_SPE, 1);

@@ -1,60 +1,85 @@
 // main.c file for mcu communication
 
 #include "STM32L432KC.h"
-
-
 #define LED_PIN PA6  // On-board LED (for debug)
-#define ADC_PIN PA2  // Analog input pin
+#define ADC_PIN PA5  // Analog input pin
+#define BUTTON_PIN PA7 // button for start/stop transcription
+
+extern volatile uint8_t *SPIptr;
+extern volatile uint8_t SPIReady;
+
+volatile uint8_t sampling = 0; 
 
 int main(void) {
-    // Enable GPIOA clock
+    configureFlash();
+    configureClock();
+
+    // Clock Enable
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 
-    // Configure LED pin as output
+    // GPIO Setup
     pinMode(LED_PIN, GPIO_OUTPUT);
-    initTIM6();
+    pinMode(BUTTON_PIN, GPIO_INPUT);
+    GPIOA->PUPDR |= GPIO_PUPDR_PUPD7_0; // Pull-up
 
-    // Initialize Peripherals
-    initSPI(0b010, 0, 0);  // BR=0b010, CPOL=0, CPHA=0
-    printf("hi");
-    initADC_DMA();
-    initADC();
+    // Init
+    initTIM6();  
+    initSPI(0b100, 1, 0); 
+    initADC_DMA(); 
+    initADC();    
+   
 
-
-    // Start continuous ADC-DMA conversions                                                                                                                                                                                                                                                  +            
-
-
-
-    ADC1->CR |= ADC_CR_ADSTART;
-
-    printf("ADC + DMA init done");
+    printf("System Ready\n");
+    
+    uint8_t prevButton = 1; 
+    SPIReady = 0;
+   
 
     while (1) {
-        printf("Turning on pin");
-        digitalWrite(LED_PIN, 1);
-        uint16_t adcValue = readADC();
-        printf("adc val: %d", adcValue);
+        // Button Logic
+        uint8_t button = digitalRead(BUTTON_PIN);
+        //printf("button: %d \n", button);
+        if (prevButton == 1 && button == 0) { 
+            delay(5); 
+            if (digitalRead(BUTTON_PIN) == 0) {
+                if (!sampling) {
+                    printf("Start Transcription\n");
+                    sampling = 1;
+                    digitalWrite(LED_PIN, 1);
+                    start_sampling(); 
+                } else {
+                    printf("Stop Transcription\n");
+                    sampling = 0;
+                    digitalWrite(LED_PIN, 0);
+                    stop_sampling(); 
+                }
+            }
+        }
+        prevButton = button;
+        
+        // If DMA finished start SPI transaction
+        if (sampling && SPIReady) {
+          SPIReady = 0;
 
-        // Split 16-bit ADC value into two bytes
-        uint8_t highByte = (adcValue >> 8) & 0xFF;
-        uint8_t lowByte = adcValue & 0xFF;
+          uint8_t *currentBuffer = (uint8_t *)SPIptr;
 
-        digitalWrite(LED_PIN, highByte);
-        for (volatile int i = 0; i < 20000; i++);
-        digitalWrite(LED_PIN, lowByte);
-        for (volatile int i = 0; i < 20000; i++);
+          digitalWrite(SPI_CS, PIO_LOW); // Select Peripheral
+            // Send the entire buffer that SPIptr is currently pointing to
+            for (int i = 0; i < BUF_LEN; i++) {
+                spiSendReceive(currentBuffer[i]);
+               // printf("Starting SPI \n");
+           }
 
+          while(SPI1->SR & SPI_SR_BSY);
 
-        //digitalWrite(SPI_CS, PIO_LOW); // Select FPGA (active low)
-        //spiSendReceive(highByte);
-        //spiSendReceive(lowByte);
-        //digitalWrite(SPI_CS, PIO_HIGH); // Deselect FPGA
+          digitalWrite(SPI_CS, PIO_HIGH); // Deselect Peripheral
+          
+            
+            // Clear
+            SPIReady = 0; 
 
-        //// Debug blink
-        //digitalWrite(LED_PIN, PIO_HIGH);
-        //for (volatile int i = 0; i < 20000; i++);
-        //digitalWrite(LED_PIN, PIO_LOW);
-        //for (volatile int i = 0; i < 20000; i++);
+            
+        }
     }
 }
