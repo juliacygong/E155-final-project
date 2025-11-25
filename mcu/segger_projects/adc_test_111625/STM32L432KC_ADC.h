@@ -3,7 +3,7 @@
 
 #include "STM32L432KC.h"
 
-#define ADC_PIN PA5  // Analog input pin
+#define ADC_PIN PB0  // Analog input pin
 
 void initADC(void);
 

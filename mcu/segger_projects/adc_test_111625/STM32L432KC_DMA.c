@@ -89,10 +89,10 @@ void DMA1_Channel1_IRQHandler(void) {
         // 1. Disable DMA to modify CMAR/CNDTR
         DMA1_Channel1->CCR &= ~DMA_CCR_EN;
         
-        // Make sure SPI is complete before switching buffers
-        if (!SPIReady) {
-          return;
-        }
+        //// Make sure SPI is complete before switching buffers
+        //if (!SPIReady) {
+        //  return;
+        //}
 
         // 2. Swap Pointers
         if (ADCptr == adcBuf) {
@@ -104,8 +104,7 @@ void DMA1_Channel1_IRQHandler(void) {
         }
 
         
-        
-        SPIReady = 0;
+        SPIReady = 1;
 
         // 4. Reconfigure DMA for the new buffer
         DMA1_Channel1->CMAR = (uint32_t)ADCptr;
