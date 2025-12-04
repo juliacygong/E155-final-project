@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="26.0.11">
   <diagram name="第 1 页" id="RXRU0kPkkmKCDPt5FYEA">
-    <mxGraphModel dx="4370" dy="3260" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="5693" dy="4080" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1107,7 +1107,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="QnQ8pVS2slKrMtvJ9DV7-532" value="Top Level Block Diagram for Music Transcriber System (Georgia Tai, Dec. 4, 2025)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=35;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+        <mxCell id="QnQ8pVS2slKrMtvJ9DV7-532" value="Top Level Block Diagram for Music Transcriber FPGA System (Georgia Tai, Dec. 4, 2025)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=35;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
           <mxGeometry x="974" y="-495" width="1775" height="165" as="geometry" />
         </mxCell>
       </root>
