@@ -1,113 +1,50 @@
-#!/usr/bin/env python3
-"""
-Convert a black and white image to FPGA memory initialization file
-Usage: python image_to_mem.py treble_clef.png
-"""
-
 from PIL import Image
-import sys
+import numpy as np
 
-def image_to_mem(image_path, output_path=None, threshold=128):
+def image_to_mem(image_path, output_path, threshold=128):
     """
-    Convert image to .mem file for FPGA
+    Convert an image to a MEM file with 1s and 0s
     
-    Args:
-        image_path: Path to input image
-        output_path: Path to output .mem file (defaults to input name + .mem)
-        threshold: Pixel brightness threshold (0-255), above = white/1, below = black/0
+    Parameters:
+    - image_path: path to input image file
+    - output_path: path to output .mem file
+    - threshold: pixel value threshold (0-255). Pixels above this are 1, below are 0
     """
-    # Load and convert image to grayscale
+    # Open and convert image to grayscale
     img = Image.open(image_path).convert('L')
+    
+    # Get image dimensions
     width, height = img.size
+    print(f"Image dimensions: {width}x{height}")
     
-    print(f"Image size: {width}x{height} = {width*height} pixels")
+    # Convert to numpy array
+    img_array = np.array(img)
     
-    # Default output path
-    if output_path is None:
-        output_path = image_path.rsplit('.', 1)[0] + '.mem'
+    # Convert to binary (1 for black/dark, 0 for white/light)
+    # Note: In images, 0 is black and 255 is white, so we invert the threshold
+    binary_array = (img_array < threshold).astype(int)
     
-    # Convert to binary (1-bit per pixel)
-    pixels = img.load()
-    
-    # Write .mem file (one bit per line in hex format)
+    # Write to MEM file - one pixel per line
     with open(output_path, 'w') as f:
-        for y in range(height):
-            for x in range(width):
-                pixel_value = pixels[x, y]
-                # If pixel is bright (above threshold), output 1, else 0
-                bit = '1' if pixel_value > threshold else '0'
-                f.write(bit + '\n')
+        for row in binary_array:
+            for pixel in row:
+                f.write(str(pixel) + '\n')
     
-    print(f"Generated {output_path}")
-    print(f"Total bits: {width * height}")
-    print(f"Address width needed: {(width * height - 1).bit_length()} bits")
-    
-    # Also create a packed version (8 bits per line) for efficiency
-    packed_output = output_path.rsplit('.', 1)[0] + '_packed.mem'
-    with open(packed_output, 'w') as f:
-        bit_buffer = []
-        for y in range(height):
-            for x in range(width):
-                pixel_value = pixels[x, y]
-                bit = 1 if pixel_value > threshold else 0
-                bit_buffer.append(bit)
-                
-                # Write byte when we have 8 bits
-                if len(bit_buffer) == 8:
-                    byte_val = 0
-                    for i, b in enumerate(bit_buffer):
-                        byte_val |= (b << (7-i))
-                    f.write(f"{byte_val:02X}\n")
-                    bit_buffer = []
-        
-        # Write remaining bits (pad with zeros)
-        if bit_buffer:
-            while len(bit_buffer) < 8:
-                bit_buffer.append(0)
-            byte_val = 0
-            for i, b in enumerate(bit_buffer):
-                byte_val |= (b << (7-i))
-            f.write(f"{byte_val:02X}\n")
-    
-    print(f"Also generated packed version: {packed_output}")
-    print(f"Packed size: {(width * height + 7) // 8} bytes")
+    print(f"MEM file created: {output_path}")
+    print(f"Total pixels: {width * height}")
+    print(f"Black pixels (1s): {np.sum(binary_array)}")
+    print(f"White pixels (0s): {width * height - np.sum(binary_array)}")
 
-def create_sample_treble_clef(width=40, height=80):
-    """Create a simple treble clef shape for testing"""
-    img = Image.new('L', (width, height), color=255)  # White background
-    pixels = img.load()
-    
-    # Draw a simple treble clef-like shape
-    # Vertical line
-    for y in range(10, 70):
-        for x in range(18, 22):
-            pixels[x, y] = 0
-    
-    # Top curl
-    for y in range(5, 20):
-        for x in range(15, 30):
-            if ((x-20)**2 + (y-12)**2) < 80:
-                pixels[x, y] = 0
-    
-    # Bottom curl
-    for y in range(60, 75):
-        for x in range(10, 28):
-            if ((x-19)**2 + (y-67)**2) < 90:
-                pixels[x, y] = 0
-    
-    # Middle crossing line
-    for x in range(12, 28):
-        for y in range(38, 42):
-            pixels[x, y] = 0
-    
-    img.save('sample_treble_clef.png')
-    print("Created sample_treble_clef.png")
-    return 'sample_treble_clef.png'
-
+# Example usage
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("No image provided, creating sample treble clef...")
-        image_path = create_sample_treble_clef()
-        image_to_mem(image_path)
-    else:
-        image_to_mem(sys.argv[1])
+    # Replace 'treble_clef.png' with your image filename
+    input_image = 'hdown_sharp.png'
+    output_mem = 'half_down_sharp.mem'
+    
+    try:
+        image_to_mem(input_image, output_mem, threshold=128)
+    except FileNotFoundError:
+        print(f"Error: Could not find image file '{input_image}'")
+        print("Please make sure the image file is in the same directory as this script.")
+    except Exception as e:
+        print(f"Error: {e}")

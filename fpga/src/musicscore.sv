@@ -14,7 +14,7 @@ module musicscore (input logic clk,
     localparam STAFF_LINE_SPACING = 10;  // pixels between staff lines
     localparam NUM_SCORES = 4;
     localparam SCORE_HEIGHT = 5 * (STAFF_LINE_SPACING + STAFF_LINE_THICKNESS);
-    localparam VERTICAL_MARGIN = 20;
+    localparam VERTICAL_MARGIN = 10;
     
     // Calculate spacing for 4 scores
     localparam TOTAL_CONTENT_HEIGHT = NUM_SCORES * SCORE_HEIGHT;
@@ -124,7 +124,7 @@ module musicscore (input logic clk,
     
     // Combine all pixels
     always_comb begin
-        if (hcount_d2 >= 620) begin
+        if (hcount_d2 <= 20 | hcount_d2 >= 620) begin
             pixel_out = 1'b0;
         end
         else begin
