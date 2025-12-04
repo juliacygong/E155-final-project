@@ -241,6 +241,15 @@
         <mxCell id="Y97fOJvBkSTQTk5PoHEU-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;" value="HSOSC" vertex="1">
           <mxGeometry height="32" width="78" x="305" y="154" as="geometry" />
         </mxCell>
+        <mxCell id="Y97fOJvBkSTQTk5PoHEU-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="CLKHFPU" vertex="1">
+          <mxGeometry height="37" width="60" x="240" y="231" as="geometry" />
+        </mxCell>
+        <mxCell id="Y97fOJvBkSTQTk5PoHEU-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="CLKHFEN" vertex="1">
+          <mxGeometry height="42" width="60" x="240" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="Y97fOJvBkSTQTk5PoHEU-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="CLKHF" vertex="1">
+          <mxGeometry height="30" width="60" x="383" y="262" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
