@@ -1,0 +1,1547 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.2.0.3.0
+
+Thu Dec  4 14:59:50 2025
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt proj_spi_impl_1.twr proj_spi_impl_1.udb -gui -msgset C:/Users/jgong/Desktop/proj_spi/promote.xml
+
+-----------------------------------------
+Design:          top
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+**Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade m Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc.osc_inst/CLKHF }] 
+create_generated_clock -name {vgatop_inst/pll_clk_internal} -source [get_pins {vgatop_inst/pllclk/u_pll/REFERENCECLK}] -multiply_by 25 -divide_by 12 [get_pins {vgatop_inst/pllclk/u_pll/OUTGLOBAL }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 81.4247%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+ Hold at Speed Grade m Corner at -40 Degrees                          Timing Errors: 1 endpoints;  Total Negative Slack: 0.015 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+        Listing 10 Start Points         |           Type           
+-------------------------------------------------------------------
+vgatop_inst/score/vcount_d2__i1/Q       |          No required time
+vgatop_inst/score/vcount_d2__i2/Q       |          No required time
+vgatop_inst/score/vcount_d2__i3/Q       |          No required time
+vgatop_inst/score/vcount_d2__i4/Q       |          No required time
+vgatop_inst/score/vcount_d2__i5/Q       |          No required time
+vgatop_inst/score/vcount_d2__i6/Q       |          No required time
+vgatop_inst/score/vcount_d2__i7/Q       |          No required time
+vgatop_inst/score/vcount_d2__i8/Q       |          No required time
+vgatop_inst/score/vcount_d2__i9/Q       |          No required time
+vgatop_inst/score/active_d2_c/Q         |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                        50
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+vgatop_inst/score/current_x_pos_i10/SR  |           No arrival time
+{vgatop_inst/score/current_x_pos_i8/SR   vgatop_inst/score/current_x_pos_i9/SR}                           
+                                        |           No arrival time
+{vgatop_inst/score/current_x_pos_i6/SR   vgatop_inst/score/current_x_pos_i7/SR}                           
+                                        |           No arrival time
+{vgatop_inst/score/current_x_pos_i4/SR   vgatop_inst/score/current_x_pos_i5/SR}                           
+                                        |           No arrival time
+vgatop_inst/score/current_x_pos_i3/SR   |           No arrival time
+{spi_inst/shift_reg__i1/SR   spi_inst/shift_reg__i2/SR}                           
+                                        |           No arrival time
+spi_inst/mosi_sync__i0/D                |           No arrival time
+{spi_inst/mosi_sync__i0/SR   spi_inst/mosi_sync__i1/SR}                           
+                                        |           No arrival time
+spi_inst/shift_reg__i7/SR               |           No arrival time
+{spi_inst/shift_reg__i6/SR   spi_inst/shift_reg__i5/SR}                           
+                                        |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                        60
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 10 Start or End Points     |           Type           
+-------------------------------------------------------------------
+reset                                   |                     input
+sclk                                    |                     input
+cs                                      |                     input
+mosi                                    |                     input
+note[2]                                 |                    output
+note[3]                                 |                    output
+note[4]                                 |                    output
+note[5]                                 |                    output
+note[1]                                 |                    output
+note[6]                                 |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                        20
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
+
+
+1.5  Combinational Loop
+========================
+None
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "vgatop_inst/pll_clk_internal"
+=======================
+create_generated_clock -name {vgatop_inst/pll_clk_internal} -source [get_pins {vgatop_inst/pllclk/u_pll/REFERENCECLK}] -multiply_by 25 -divide_by 12 [get_pins {vgatop_inst/pllclk/u_pll/OUTGLOBAL }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+   Clock vgatop_inst/pll_clk_internal   |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From vgatop_inst/pll_clk_internal      |             Target |          40.000 ns |         25.000 MHz 
+                                        | Actual (all paths) |          37.704 ns |         26.522 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+   Clock vgatop_inst/pll_clk_internal   |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From clk                               |                     3.333 ns |             slack = 2.015 ns 
+------------------------------------------------------------------------------------------------------
+
+2.1.2 Clock "clk"
+=======================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc.osc_inst/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock clk                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From clk                               |             Target |          83.333 ns |         12.000 MHz 
+                                        | Actual (all paths) |          66.286 ns |         15.086 MHz 
+hf_osc.osc_inst/CLKHF (MPW)             |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+               Clock clk                |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From vgatop_inst/pll_clk_internal      |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+vgatop_inst/note1_i5/D                   |    2.015 ns 
+vgatop_inst/note1_i3/D                   |    2.280 ns 
+vgatop_inst/score/note_rom_addr_s2__i13/D|    2.297 ns 
+vgatop_inst/note1_i7/D                   |    2.333 ns 
+vgatop_inst/note1_i6/D                   |    2.505 ns 
+vgatop_inst/note1_i4/D                   |    2.505 ns 
+vgatop_inst/note1_i1/D                   |    2.505 ns 
+vgatop_inst/score/note_rom_addr_s2__i14/D|    2.562 ns 
+vgatop_inst/note1_i2/D                   |    2.610 ns 
+vgatop_inst/new_note1_c/D                |    2.703 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : fft_ctrl_inst/note_hold__i6/Q  (SLICE_R15C6C)
+Path End         : vgatop_inst/note1_i5/D  (SLICE_R16C7D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 71.9% (route), 28.1% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.015 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i5/CK   fft_ctrl_inst/note_hold__i6/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i6/CK->fft_ctrl_inst/note_hold__i6/Q
+                                          SLICE_R15C6C       CLK_TO_Q1_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_5                                         NET DELAY           4.759                 11.646  4       
+SLICE_1112/C0->SLICE_1112/F0              SLICE_R16C7D       C0_TO_F0_DELAY      0.476                 12.122  1       
+note_c_5.sig_140.FeedThruLUT                                 NET DELAY           0.000                 12.122  1       
+vgatop_inst/note1_i5/D                                       ENDPOINT            0.000                 12.122  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i5/CK   vgatop_inst/note1_i6/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(12.122)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.015  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i4/Q  (SLICE_R15C4C)
+Path End         : vgatop_inst/note1_i3/D  (SLICE_R14C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 70.7% (route), 29.3% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.280 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i3/CK   fft_ctrl_inst/note_hold__i4/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i4/CK->fft_ctrl_inst/note_hold__i4/Q
+                                          SLICE_R15C4C       CLK_TO_Q1_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_3                                         NET DELAY           4.494                 11.381  4       
+SLICE_1110/D0->SLICE_1110/F0              SLICE_R14C5D       D0_TO_F0_DELAY      0.476                 11.857  1       
+note_c_3.sig_138.FeedThruLUT                                 NET DELAY           0.000                 11.857  1       
+vgatop_inst/note1_i3/D                                       ENDPOINT            0.000                 11.857  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i3/CK   vgatop_inst/note1_i4/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.857)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.280  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgatop_inst/score/note_y[7]__i33/Q  (SLICE_R8C18A)
+Path End         : vgatop_inst/score/note_rom_addr_s2__i13/D  (SLICE_R5C14C)
+Source Clock     : vgatop_inst/pll_clk_internal (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 19
+Delay Ratio      : 78.2% (route), 21.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 40.000 ns 
+Path Slack       : 2.296 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY               5.353                  5.353  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                             0.000                  5.353  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                             0.150                  5.503  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY               5.499                 11.002  182     
+{vgatop_inst/score/note_y[7]__i34/CK   vgatop_inst/score/note_y[7]__i33/CK}
+                                                             CLOCK PIN               0.000                 11.002  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+vgatop_inst/score/note_y[7]__i33/CK->vgatop_inst/score/note_y[7]__i33/Q
+                                          SLICE_R8C18A       CLK_TO_Q1_DELAY         1.388                 12.390  6       
+vgatop_inst/score/note_y[4][2]                               NET DELAY               3.463                 15.853  6       
+vgatop_inst/score/sub_551_inv_0_i3_1_lut/A->vgatop_inst/score/sub_551_inv_0_i3_1_lut/Z
+                                          SLICE_R4C14A       D1_TO_F1_DELAY          0.449                 16.302  1       
+vgatop_inst/score/n1_10[2]                                   NET DELAY               4.217                 20.519  1       
+vgatop_inst/score/add_1791_4/C0->vgatop_inst/score/add_1791_4/CO0
+                                          SLICE_R4C8B        C0_TO_COUT0_DELAY       0.343                 20.862  2       
+vgatop_inst/score/n41363                                     NET DELAY               0.000                 20.862  2       
+vgatop_inst/score/add_1791_4/CI1->vgatop_inst/score/add_1791_4/CO1
+                                          SLICE_R4C8B        CIN1_TO_COUT1_DELAY     0.277                 21.139  2       
+vgatop_inst/score/n20194                                     NET DELAY               0.000                 21.139  2       
+vgatop_inst/score/add_1791_6/CI0->vgatop_inst/score/add_1791_6/CO0
+                                          SLICE_R4C8C        CIN0_TO_COUT0_DELAY     0.277                 21.416  2       
+vgatop_inst/score/n41375                                     NET DELAY               0.000                 21.416  2       
+vgatop_inst/score/add_1791_6/CI1->vgatop_inst/score/add_1791_6/CO1
+                                          SLICE_R4C8C        CIN1_TO_COUT1_DELAY     0.277                 21.693  2       
+vgatop_inst/score/n20196                                     NET DELAY               0.000                 21.693  2       
+vgatop_inst/score/add_1791_8/CI0->vgatop_inst/score/add_1791_8/CO0
+                                          SLICE_R4C8D        CIN0_TO_COUT0_DELAY     0.277                 21.970  2       
+vgatop_inst/score/n41387                                     NET DELAY               0.000                 21.970  2       
+vgatop_inst/score/add_1791_8/CI1->vgatop_inst/score/add_1791_8/CO1
+                                          SLICE_R4C8D        CIN1_TO_COUT1_DELAY     0.277                 22.247  2       
+vgatop_inst/score/n20198                                     NET DELAY               0.555                 22.802  2       
+vgatop_inst/score/add_1791_10/CI0->vgatop_inst/score/add_1791_10/CO0
+                                          SLICE_R4C9A        CIN0_TO_COUT0_DELAY     0.277                 23.079  2       
+vgatop_inst/score/n41399                                     NET DELAY               0.661                 23.740  2       
+vgatop_inst/score/add_1791_10/D1->vgatop_inst/score/add_1791_10/S1
+                                          SLICE_R4C9A        D1_TO_F1_DELAY          0.449                 24.189  2       
+vgatop_inst/score/n67[10]                                    NET DELAY               3.357                 27.546  2       
+vgatop_inst/score/sub_1769_inv_0_i10_1_lut/A->vgatop_inst/score/sub_1769_inv_0_i10_1_lut/Z
+                                          SLICE_R6C12A       D1_TO_F1_DELAY          0.449                 27.995  1       
+vgatop_inst/score/n1_3[9]                                    NET DELAY               3.542                 31.537  1       
+vgatop_inst/score/add_2041_2_add_1_11/C0->vgatop_inst/score/add_2041_2_add_1_11/CO0
+                                          SLICE_R3C10B       C0_TO_COUT0_DELAY       0.343                 31.880  2       
+vgatop_inst/score/n41408                                     NET DELAY               0.661                 32.541  2       
+vgatop_inst/score/add_2041_2_add_1_11/D1->vgatop_inst/score/add_2041_2_add_1_11/S1
+                                          SLICE_R3C10B       D1_TO_F1_DELAY          0.449                 32.990  1       
+vgatop_inst/score/n19622                                     NET DELAY               2.485                 35.475  1       
+vgatop_inst/score/add_15261_11/B1->vgatop_inst/score/add_15261_11/CO1
+                                          SLICE_R4C11B       B1_TO_COUT1_DELAY       0.357                 35.832  2       
+vgatop_inst/score/n21067                                     NET DELAY               0.661                 36.493  2       
+vgatop_inst/score/add_15261_13/D0->vgatop_inst/score/add_15261_13/S0
+                                          SLICE_R4C11C       D0_TO_F0_DELAY          0.449                 36.942  1       
+vgatop_inst/score/n19931[11]                                 NET DELAY               3.622                 40.564  1       
+vgatop_inst/score/i24351_2_lut/A->vgatop_inst/score/i24351_2_lut/Z
+                                          SLICE_R6C12A       C0_TO_F0_DELAY          0.449                 41.013  1       
+vgatop_inst/score/n32312                                     NET DELAY               2.432                 43.445  1       
+vgatop_inst/score/n6214_bdd_4_lut_12_4_lut/C->vgatop_inst/score/n6214_bdd_4_lut_12_4_lut/Z
+                                          SLICE_R6C12B       C0_TO_F0_DELAY          0.476                 43.921  1       
+vgatop_inst/score/n36759                                     NET DELAY               0.304                 44.225  1       
+vgatop_inst/score/n36759_bdd_4_lut_4_lut/D->vgatop_inst/score/n36759_bdd_4_lut_4_lut/Z
+                                          SLICE_R6C12B       C1_TO_F1_DELAY          0.449                 44.674  1       
+vgatop_inst/score/n36762                                     NET DELAY               3.357                 48.031  1       
+vgatop_inst/score/mux_613_i13_4_lut/A->vgatop_inst/score/mux_613_i13_4_lut/Z
+                                          SLICE_R5C14C       D1_TO_F1_DELAY          0.476                 48.507  1       
+vgatop_inst/score/n5697[12]                                  NET DELAY               0.000                 48.507  1       
+vgatop_inst/score/note_rom_addr_s2__i13/D
+                                                             ENDPOINT                0.000                 48.507  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 40.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 40.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY               5.353                 45.353  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                             0.000                 45.353  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                             0.150                 45.503  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY               5.499                 51.002  182     
+{vgatop_inst/score/note_rom_addr_s2__i14/CK   vgatop_inst/score/note_rom_addr_s2__i13/CK}
+                                                             CLOCK PIN               0.000                 51.002  1       
+                                                             Uncertainty          -(0.000)                 51.002  
+                                                             Setup time           -(0.198)                 50.804  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              50.804  
+Arrival Time                                                                                            -(48.507)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                        2.296  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i8/Q  (SLICE_R17C6C)
+Path End         : vgatop_inst/note1_i7/D  (SLICE_R18C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 70.4% (route), 29.6% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.333 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i7/CK   fft_ctrl_inst/note_hold__i8/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i8/CK->fft_ctrl_inst/note_hold__i8/Q
+                                          SLICE_R17C6C       CLK_TO_Q1_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_7                                         NET DELAY           4.441                 11.328  4       
+vgatop_inst.SLICE_1096/D1->vgatop_inst.SLICE_1096/F1
+                                          SLICE_R18C5C       D1_TO_F1_DELAY      0.476                 11.804  1       
+note_c_7.sig_142.FeedThruLUT                                 NET DELAY           0.000                 11.804  1       
+vgatop_inst/note1_i7/D                                       ENDPOINT            0.000                 11.804  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note2_i7/CK   vgatop_inst/note1_i7/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.804)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.333  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i7/Q  (SLICE_R17C6C)
+Path End         : vgatop_inst/note1_i6/D  (SLICE_R16C7D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.6% (route), 30.4% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.505 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i7/CK   fft_ctrl_inst/note_hold__i8/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i7/CK->fft_ctrl_inst/note_hold__i7/Q
+                                          SLICE_R17C6C       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_6                                         NET DELAY           4.269                 11.156  4       
+SLICE_1112/C1->SLICE_1112/F1              SLICE_R16C7D       C1_TO_F1_DELAY      0.476                 11.632  1       
+note_c_6.sig_141.FeedThruLUT                                 NET DELAY           0.000                 11.632  1       
+vgatop_inst/note1_i6/D                                       ENDPOINT            0.000                 11.632  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i5/CK   vgatop_inst/note1_i6/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.632)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.505  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i5/Q  (SLICE_R15C6C)
+Path End         : vgatop_inst/note1_i4/D  (SLICE_R14C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.6% (route), 30.4% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.505 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i5/CK   fft_ctrl_inst/note_hold__i6/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i5/CK->fft_ctrl_inst/note_hold__i5/Q
+                                          SLICE_R15C6C       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_4                                         NET DELAY           4.269                 11.156  4       
+SLICE_1110/C1->SLICE_1110/F1              SLICE_R14C5D       C1_TO_F1_DELAY      0.476                 11.632  1       
+note_c_4.sig_139.FeedThruLUT                                 NET DELAY           0.000                 11.632  1       
+vgatop_inst/note1_i4/D                                       ENDPOINT            0.000                 11.632  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i3/CK   vgatop_inst/note1_i4/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.632)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.505  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i2/Q  (SLICE_R15C6D)
+Path End         : vgatop_inst/note1_i1/D  (SLICE_R14C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.6% (route), 30.4% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.505 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i1/CK   fft_ctrl_inst/note_hold__i2/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i2/CK->fft_ctrl_inst/note_hold__i2/Q
+                                          SLICE_R15C6D       CLK_TO_Q1_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_1                                         NET DELAY           4.269                 11.156  4       
+SLICE_1087/C0->SLICE_1087/F0              SLICE_R14C5C       C0_TO_F0_DELAY      0.476                 11.632  1       
+note_c_1.sig_115.FeedThruLUT                                 NET DELAY           0.000                 11.632  1       
+vgatop_inst/note1_i1/D                                       ENDPOINT            0.000                 11.632  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i1/CK   vgatop_inst/note1_i2/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.632)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.505  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgatop_inst/score/note_y[7]__i33/Q  (SLICE_R8C18A)
+Path End         : vgatop_inst/score/note_rom_addr_s2__i14/D  (SLICE_R5C14C)
+Source Clock     : vgatop_inst/pll_clk_internal (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 20
+Delay Ratio      : 77.3% (route), 22.7% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 40.000 ns 
+Path Slack       : 2.561 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY               5.353                  5.353  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                             0.000                  5.353  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                             0.150                  5.503  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY               5.499                 11.002  182     
+{vgatop_inst/score/note_y[7]__i34/CK   vgatop_inst/score/note_y[7]__i33/CK}
+                                                             CLOCK PIN               0.000                 11.002  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+vgatop_inst/score/note_y[7]__i33/CK->vgatop_inst/score/note_y[7]__i33/Q
+                                          SLICE_R8C18A       CLK_TO_Q1_DELAY         1.388                 12.390  6       
+vgatop_inst/score/note_y[4][2]                               NET DELAY               3.463                 15.853  6       
+vgatop_inst/score/sub_551_inv_0_i3_1_lut/A->vgatop_inst/score/sub_551_inv_0_i3_1_lut/Z
+                                          SLICE_R4C14A       D1_TO_F1_DELAY          0.449                 16.302  1       
+vgatop_inst/score/n1_10[2]                                   NET DELAY               4.217                 20.519  1       
+vgatop_inst/score/add_1791_4/C0->vgatop_inst/score/add_1791_4/CO0
+                                          SLICE_R4C8B        C0_TO_COUT0_DELAY       0.343                 20.862  2       
+vgatop_inst/score/n41363                                     NET DELAY               0.000                 20.862  2       
+vgatop_inst/score/add_1791_4/CI1->vgatop_inst/score/add_1791_4/CO1
+                                          SLICE_R4C8B        CIN1_TO_COUT1_DELAY     0.277                 21.139  2       
+vgatop_inst/score/n20194                                     NET DELAY               0.000                 21.139  2       
+vgatop_inst/score/add_1791_6/CI0->vgatop_inst/score/add_1791_6/CO0
+                                          SLICE_R4C8C        CIN0_TO_COUT0_DELAY     0.277                 21.416  2       
+vgatop_inst/score/n41375                                     NET DELAY               0.000                 21.416  2       
+vgatop_inst/score/add_1791_6/CI1->vgatop_inst/score/add_1791_6/CO1
+                                          SLICE_R4C8C        CIN1_TO_COUT1_DELAY     0.277                 21.693  2       
+vgatop_inst/score/n20196                                     NET DELAY               0.000                 21.693  2       
+vgatop_inst/score/add_1791_8/CI0->vgatop_inst/score/add_1791_8/CO0
+                                          SLICE_R4C8D        CIN0_TO_COUT0_DELAY     0.277                 21.970  2       
+vgatop_inst/score/n41387                                     NET DELAY               0.000                 21.970  2       
+vgatop_inst/score/add_1791_8/CI1->vgatop_inst/score/add_1791_8/CO1
+                                          SLICE_R4C8D        CIN1_TO_COUT1_DELAY     0.277                 22.247  2       
+vgatop_inst/score/n20198                                     NET DELAY               0.555                 22.802  2       
+vgatop_inst/score/add_1791_10/CI0->vgatop_inst/score/add_1791_10/CO0
+                                          SLICE_R4C9A        CIN0_TO_COUT0_DELAY     0.277                 23.079  2       
+vgatop_inst/score/n41399                                     NET DELAY               0.661                 23.740  2       
+vgatop_inst/score/add_1791_10/D1->vgatop_inst/score/add_1791_10/S1
+                                          SLICE_R4C9A        D1_TO_F1_DELAY          0.449                 24.189  2       
+vgatop_inst/score/n67[10]                                    NET DELAY               3.357                 27.546  2       
+vgatop_inst/score/sub_1769_inv_0_i10_1_lut/A->vgatop_inst/score/sub_1769_inv_0_i10_1_lut/Z
+                                          SLICE_R6C12A       D1_TO_F1_DELAY          0.449                 27.995  1       
+vgatop_inst/score/n1_3[9]                                    NET DELAY               3.542                 31.537  1       
+vgatop_inst/score/add_2041_2_add_1_11/C0->vgatop_inst/score/add_2041_2_add_1_11/CO0
+                                          SLICE_R3C10B       C0_TO_COUT0_DELAY       0.343                 31.880  2       
+vgatop_inst/score/n41408                                     NET DELAY               0.000                 31.880  2       
+vgatop_inst/score/add_2041_2_add_1_11/CI1->vgatop_inst/score/add_2041_2_add_1_11/CO1
+                                          SLICE_R3C10B       CIN1_TO_COUT1_DELAY     0.277                 32.157  2       
+vgatop_inst/score/n20967                                     NET DELAY               0.661                 32.818  2       
+vgatop_inst/score/add_2041_2_add_1_13/D0->vgatop_inst/score/add_2041_2_add_1_13/S0
+                                          SLICE_R3C10C       D0_TO_F0_DELAY          0.449                 33.267  1       
+vgatop_inst/score/n19623                                     NET DELAY               3.080                 36.347  1       
+vgatop_inst/score/add_15261_13/B0->vgatop_inst/score/add_15261_13/CO0
+                                          SLICE_R4C11C       B0_TO_COUT0_DELAY       0.357                 36.704  2       
+vgatop_inst/score/n41417                                     NET DELAY               0.661                 37.365  2       
+vgatop_inst/score/add_15261_13/D1->vgatop_inst/score/add_15261_13/S1
+                                          SLICE_R4C11C       D1_TO_F1_DELAY          0.449                 37.814  1       
+vgatop_inst/score/n19931[12]                                 NET DELAY               2.485                 40.299  1       
+vgatop_inst/score/i24345_2_lut/A->vgatop_inst/score/i24345_2_lut/Z
+                                          SLICE_R5C10A       B0_TO_F0_DELAY          0.449                 40.748  1       
+vgatop_inst/score/n32315                                     NET DELAY               2.432                 43.180  1       
+vgatop_inst/score/n6214_bdd_4_lut_4_lut/C->vgatop_inst/score/n6214_bdd_4_lut_4_lut/Z
+                                          SLICE_R5C10B       C0_TO_F0_DELAY          0.476                 43.656  1       
+vgatop_inst/score/n36777                                     NET DELAY               0.304                 43.960  1       
+vgatop_inst/score/n36777_bdd_4_lut_4_lut/D->vgatop_inst/score/n36777_bdd_4_lut_4_lut/Z
+                                          SLICE_R5C10B       C1_TO_F1_DELAY          0.449                 44.409  1       
+vgatop_inst/score/n36780                                     NET DELAY               3.357                 47.766  1       
+vgatop_inst/score/mux_613_i14_4_lut/A->vgatop_inst/score/mux_613_i14_4_lut/Z
+                                          SLICE_R5C14C       D0_TO_F0_DELAY          0.476                 48.242  1       
+vgatop_inst/score/n5697[13]                                  NET DELAY               0.000                 48.242  1       
+vgatop_inst/score/note_rom_addr_s2__i14/D
+                                                             ENDPOINT                0.000                 48.242  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 40.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 40.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY               5.353                 45.353  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                             0.000                 45.353  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                             0.150                 45.503  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY               5.499                 51.002  182     
+{vgatop_inst/score/note_rom_addr_s2__i14/CK   vgatop_inst/score/note_rom_addr_s2__i13/CK}
+                                                             CLOCK PIN               0.000                 51.002  1       
+                                                             Uncertainty          -(0.000)                 51.002  
+                                                             Setup time           -(0.198)                 50.804  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              50.804  
+Arrival Time                                                                                            -(48.242)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                        2.561  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i3/Q  (SLICE_R15C4C)
+Path End         : vgatop_inst/note1_i2/D  (SLICE_R14C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.1% (route), 30.9% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.610 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+{fft_ctrl_inst/note_hold__i3/CK   fft_ctrl_inst/note_hold__i4/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/note_hold__i3/CK->fft_ctrl_inst/note_hold__i3/Q
+                                          SLICE_R15C4C       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+vgatop_inst/note_c_2                                         NET DELAY           4.164                 11.051  4       
+SLICE_1087/C1->SLICE_1087/F1              SLICE_R14C5C       C1_TO_F1_DELAY      0.476                 11.527  1       
+note_c_2.sig_137.FeedThruLUT                                 NET DELAY           0.000                 11.527  1       
+vgatop_inst/note1_i2/D                                       ENDPOINT            0.000                 11.527  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/note1_i1/CK   vgatop_inst/note1_i2/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.527)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.610  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/notedur/new_note_c/Q  (SLICE_R22C4D)
+Path End         : vgatop_inst/new_note1_c/D  (SLICE_R21C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 68.6% (route), 31.4% (logic)
+Clock Skew       : 5.503 ns 
+Setup Constraint : 3.333 ns 
+Path Slack       : 2.703 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.499                  5.499  322     
+fft_ctrl_inst/notedur/new_note_c/CK                          CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+fft_ctrl_inst/notedur/new_note_c/CK->fft_ctrl_inst/notedur/new_note_c/Q
+                                          SLICE_R22C4D       CLK_TO_Q1_DELAY     1.388                  6.887  1       
+vgatop_inst/new_note                                         NET DELAY           4.071                 10.958  1       
+SLICE_1088/C0->SLICE_1088/F0              SLICE_R21C5D       C0_TO_F0_DELAY      0.476                 11.434  1       
+new_note.sig_116.FeedThruLUT                                 NET DELAY           0.000                 11.434  1       
+vgatop_inst/new_note1_c/D                                    ENDPOINT            0.000                 11.434  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                  3.333  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  3.333  322     
+vgatop_inst/pllclk/clk                                       NET DELAY           5.353                  8.686  322     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                         0.000                  8.686  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                         0.150                  8.836  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY           5.499                 14.335  182     
+{vgatop_inst/new_note1_c/CK   vgatop_inst/new_note2_c/CK}
+                                                             CLOCK PIN           0.000                 14.335  1       
+                                                             Uncertainty      -(0.000)                 14.335  
+                                                             Setup time       -(0.198)                 14.137  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          14.137  
+Arrival Time                                                                                        -(11.434)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.703  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade m Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+vgatop_inst/new_note1_c/D                |   -0.015 ns 
+vgatop_inst/note1_i2/D                   |    0.044 ns 
+vgatop_inst/note1_i6/D                   |    0.118 ns 
+vgatop_inst/note1_i4/D                   |    0.118 ns 
+vgatop_inst/note1_i1/D                   |    0.118 ns 
+vgatop_inst/note1_i7/D                   |    0.192 ns 
+vgatop_inst/note1_i3/D                   |    0.229 ns 
+vgatop_inst/note1_i5/D                   |    0.400 ns 
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR5              
+                                         |    1.432 ns 
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR7              
+                                         |    1.432 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           1 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : fft_ctrl_inst/notedur/new_note_c/Q  (SLICE_R22C4D)
+Path End         : vgatop_inst/new_note1_c/D  (SLICE_R21C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : -0.015 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+fft_ctrl_inst/notedur/new_note_c/CK                          CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/notedur/new_note_c/CK->fft_ctrl_inst/notedur/new_note_c/Q
+                                          SLICE_R22C4D       CLK_TO_Q1_DELAY  0.779                  3.863  1       
+vgatop_inst/new_note                                         NET DELAY        2.106                  5.969  1       
+SLICE_1088/C0->SLICE_1088/F0              SLICE_R21C5D       C0_TO_F0_DELAY   0.252                  6.221  1       
+new_note.sig_116.FeedThruLUT                                 NET DELAY        0.000                  6.221  1       
+vgatop_inst/new_note1_c/D                                    ENDPOINT         0.000                  6.221  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/new_note1_c/CK   vgatop_inst/new_note2_c/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.221  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Failed)                                                                                -0.015  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i3/Q  (SLICE_R15C4C)
+Path End         : vgatop_inst/note1_i2/D  (SLICE_R14C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 67.7% (route), 32.3% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.044 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i3/CK   fft_ctrl_inst/note_hold__i4/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i3/CK->fft_ctrl_inst/note_hold__i3/Q
+                                          SLICE_R15C4C       CLK_TO_Q0_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_2                                         NET DELAY        2.165                  6.028  4       
+SLICE_1087/C1->SLICE_1087/F1              SLICE_R14C5C       C1_TO_F1_DELAY   0.252                  6.280  1       
+note_c_2.sig_137.FeedThruLUT                                 NET DELAY        0.000                  6.280  1       
+vgatop_inst/note1_i2/D                                       ENDPOINT         0.000                  6.280  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i1/CK   vgatop_inst/note1_i2/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.280  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.044  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i7/Q  (SLICE_R17C6C)
+Path End         : vgatop_inst/note1_i6/D  (SLICE_R16C7D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 68.5% (route), 31.5% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.118 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i7/CK   fft_ctrl_inst/note_hold__i8/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i7/CK->fft_ctrl_inst/note_hold__i7/Q
+                                          SLICE_R17C6C       CLK_TO_Q0_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_6                                         NET DELAY        2.239                  6.102  4       
+SLICE_1112/C1->SLICE_1112/F1              SLICE_R16C7D       C1_TO_F1_DELAY   0.252                  6.354  1       
+note_c_6.sig_141.FeedThruLUT                                 NET DELAY        0.000                  6.354  1       
+vgatop_inst/note1_i6/D                                       ENDPOINT         0.000                  6.354  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i5/CK   vgatop_inst/note1_i6/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.354  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.118  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i5/Q  (SLICE_R15C6C)
+Path End         : vgatop_inst/note1_i4/D  (SLICE_R14C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 68.5% (route), 31.5% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.118 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i5/CK   fft_ctrl_inst/note_hold__i6/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i5/CK->fft_ctrl_inst/note_hold__i5/Q
+                                          SLICE_R15C6C       CLK_TO_Q0_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_4                                         NET DELAY        2.239                  6.102  4       
+SLICE_1110/C1->SLICE_1110/F1              SLICE_R14C5D       C1_TO_F1_DELAY   0.252                  6.354  1       
+note_c_4.sig_139.FeedThruLUT                                 NET DELAY        0.000                  6.354  1       
+vgatop_inst/note1_i4/D                                       ENDPOINT         0.000                  6.354  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i3/CK   vgatop_inst/note1_i4/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.354  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.118  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i2/Q  (SLICE_R15C6D)
+Path End         : vgatop_inst/note1_i1/D  (SLICE_R14C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 68.5% (route), 31.5% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.118 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i1/CK   fft_ctrl_inst/note_hold__i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i2/CK->fft_ctrl_inst/note_hold__i2/Q
+                                          SLICE_R15C6D       CLK_TO_Q1_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_1                                         NET DELAY        2.239                  6.102  4       
+SLICE_1087/C0->SLICE_1087/F0              SLICE_R14C5C       C0_TO_F0_DELAY   0.252                  6.354  1       
+note_c_1.sig_115.FeedThruLUT                                 NET DELAY        0.000                  6.354  1       
+vgatop_inst/note1_i1/D                                       ENDPOINT         0.000                  6.354  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i1/CK   vgatop_inst/note1_i2/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.354  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.118  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i8/Q  (SLICE_R17C6C)
+Path End         : vgatop_inst/note1_i7/D  (SLICE_R18C5C)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.2% (route), 30.8% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.192 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i7/CK   fft_ctrl_inst/note_hold__i8/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i8/CK->fft_ctrl_inst/note_hold__i8/Q
+                                          SLICE_R17C6C       CLK_TO_Q1_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_7                                         NET DELAY        2.313                  6.176  4       
+vgatop_inst.SLICE_1096/D1->vgatop_inst.SLICE_1096/F1
+                                          SLICE_R18C5C       D1_TO_F1_DELAY   0.252                  6.428  1       
+note_c_7.sig_142.FeedThruLUT                                 NET DELAY        0.000                  6.428  1       
+vgatop_inst/note1_i7/D                                       ENDPOINT         0.000                  6.428  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note2_i7/CK   vgatop_inst/note1_i7/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.428  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.192  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i4/Q  (SLICE_R15C4C)
+Path End         : vgatop_inst/note1_i3/D  (SLICE_R14C5D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 69.5% (route), 30.5% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.229 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i3/CK   fft_ctrl_inst/note_hold__i4/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i4/CK->fft_ctrl_inst/note_hold__i4/Q
+                                          SLICE_R15C4C       CLK_TO_Q1_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_3                                         NET DELAY        2.350                  6.213  4       
+SLICE_1110/D0->SLICE_1110/F0              SLICE_R14C5D       D0_TO_F0_DELAY   0.252                  6.465  1       
+note_c_3.sig_138.FeedThruLUT                                 NET DELAY        0.000                  6.465  1       
+vgatop_inst/note1_i3/D                                       ENDPOINT         0.000                  6.465  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i3/CK   vgatop_inst/note1_i4/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.465  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.229  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/note_hold__i6/Q  (SLICE_R15C6C)
+Path End         : vgatop_inst/note1_i5/D  (SLICE_R16C7D)
+Source Clock     : clk (R)
+Destination Clock: vgatop_inst/pll_clk_internal (R)
+Logic Level      : 2
+Delay Ratio      : 71.0% (route), 29.0% (logic)
+Clock Skew       : 3.152 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 0.400 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/note_hold__i5/CK   fft_ctrl_inst/note_hold__i6/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/note_hold__i6/CK->fft_ctrl_inst/note_hold__i6/Q
+                                          SLICE_R15C6C       CLK_TO_Q1_DELAY  0.779                  3.863  4       
+vgatop_inst/note_c_5                                         NET DELAY        2.521                  6.384  4       
+SLICE_1112/C0->SLICE_1112/F0              SLICE_R16C7D       C0_TO_F0_DELAY   0.252                  6.636  1       
+note_c_5.sig_140.FeedThruLUT                                 NET DELAY        0.000                  6.636  1       
+vgatop_inst/note1_i5/D                                       ENDPOINT         0.000                  6.636  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.002                  3.002  323     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL
+                                          PLL_PLL_R13C32                      0.000                  3.002  182     
+vgatop_inst/pllclk/u_pll/REFERENCECLK->vgatop_inst/pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_PLL_R13C32                      0.150                  3.152  182     
+vgatop_inst/pllclk/pll_clk_internal                          NET DELAY        3.084                  6.236  182     
+{vgatop_inst/note1_i5/CK   vgatop_inst/note1_i6/CK}
+                                                             CLOCK PIN        0.000                  6.236  1       
+                                                             Uncertainty      0.000                  6.236  
+                                                             Hold time        0.000                  6.236  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -6.236  
+Arrival Time                                                                                         6.636  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 0.400  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/adr_fft__i5/Q  (SLICE_R21C26C)
+Path End         : fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR5  (EBR_EBR_R20C26)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.8% (route), 52.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.432 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/adr_fft__i5/CK   fft_ctrl_inst/adr_fft__i4/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/adr_fft__i5/CK->fft_ctrl_inst/adr_fft__i5/Q
+                                          SLICE_R21C26C      CLK_TO_Q0_DELAY  0.779                  3.863  5       
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/adr_fft[5]
+                                                             NET DELAY        0.712                  4.575  5       
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR5
+                                                             ENDPOINT         0.000                  4.575  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RCLK
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.059                  3.143  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.143  
+Arrival Time                                                                                         4.575  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.432  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fft_ctrl_inst/adr_fft__i7/Q  (SLICE_R21C26B)
+Path End         : fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR7  (EBR_EBR_R20C26)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.8% (route), 52.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.432 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+{fft_ctrl_inst/adr_fft__i7/CK   fft_ctrl_inst/adr_fft__i6/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+fft_ctrl_inst/adr_fft__i7/CK->fft_ctrl_inst/adr_fft__i7/Q
+                                          SLICE_R21C26B      CLK_TO_Q0_DELAY  0.779                  3.863  5       
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/adr_fft[7]
+                                                             NET DELAY        0.712                  4.575  5       
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RADDR7
+                                                             ENDPOINT         0.000                  4.575  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc.osc_inst/CLKHF                     HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  323     
+vgatop_inst/pllclk/clk                                       NET DELAY        3.084                  3.084  323     
+fft_ctrl_inst/ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0.ebr_inst/RCLK
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.059                  3.143  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.143  
+Arrival Time                                                                                         4.575  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.432  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+

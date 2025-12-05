@@ -1,0 +1,5 @@
+#Start recording tcl command: 12/3/2025 11:14:20
+#Project Location: C:/Users/User/Desktop/proj_spi/proj_spi; Project name: proj_spi
+prj_open "C:/Users/User/Desktop/proj_spi/proj_spi/proj_spi.rdf"
+prj_close
+#Stop recording: 12/3/2025 12:50:53

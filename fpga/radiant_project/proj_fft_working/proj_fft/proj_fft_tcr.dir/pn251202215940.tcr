@@ -1,9 +1,0 @@
-#Start recording tcl command: 12/2/2025 16:05:08
-#Project Location: C:/Users/User/Desktop/proj_fft; Project name: proj_fft
-prj_open "C:/Users/User/Desktop/proj_fft/proj_fft.rdf"
-prj_set_impl_opt -impl "fft" {top} {fft_ctrl}
-prj_run Synthesis -impl fft
-prj_run Map -impl fft
-prj_run PAR -impl fft
-prj_run Export -impl fft
-#Stop recording: 12/2/2025 21:59:40

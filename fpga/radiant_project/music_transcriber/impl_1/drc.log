@@ -1,0 +1,5 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2025.1.0.39.0
+Thu Dec  4 01:34:04 2025
+
+WARNING <1027013> - No port matched 'fft_start_posedge'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (2) : Can't resolve object 'fft_start_posedge' in constraint 'ldc_set_location -site {6} [get_ports fft_start_posedge]'.
