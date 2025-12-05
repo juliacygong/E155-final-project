@@ -1,0 +1,357 @@
+<HTML>
+<HEAD>
+<TITLE>Map Report</TITLE>
+<link href="" rel="stylesheet" type="text/css" media="screen"/>
+<link href="" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Mrp"></A>                         Lattice Mapping Report File
+
+Design:  vgatop
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2025.1.0.39.0
+Mapped on: Tue Dec  2 03:27:07 2025
+
+<A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
+
+Command line:   map -pdc C:/Users/User/Desktop/proj_fft/pins.pdc -i
+     proj_fft_fft_syn.udb -o proj_fft_fft_map.udb -mp proj_fft_fft.mrp -hierrpt
+     -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+<A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
+
+   Number of slice registers: 112 out of  5280 (2%)
+   Number of I/O registers:      0 out of   117 (0%)
+   Number of LUT4s:           653 out of  5280 (12%)
+      Number of logic LUT4s:             458
+      Number of inserted feedthru LUT4s:  71
+      Number of ripple logic:             62 (124 LUT4s)
+   Number of IO sites used:   7 out of 39 (18%)
+      Number of IO sites used for general PIO: 7
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 7 out of 36 (19%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 7 out of 39 (18%)
+   Number of DSPs:             2 out of 8 (25%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             0 out of 30 (0%)
+   Number of PLLs:             1 out of 1 (100%)
+   Number of Clocks:  2
+      Net pll_clk_internal: 104 loads, 104 rising, 0 falling (Driver: Pin
+     pllclk.u_pll/OUTGLOBAL)
+      Net pllclk.clk_ref: 1 loads, 1 rising, 0 falling (Driver: Pin
+     pllclk.u_hsosc/CLKHF)
+   Number of Clock Enables:  2
+      Net vsync_pad.vcc: 1 loads, 0 SLICEs
+      Net vgactrl.n21: 10 loads, 10 SLICEs
+   Number of LSRs:  3
+      Net n6: 63 loads, 63 SLICEs
+      Net score.n171: 9 loads, 9 SLICEs
+      Net score.found_in_box: 7 loads, 7 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net score.clef_rom.addr_d2[3]: 112 loads
+      Net score.clef_rom.addr_d2[2]: 108 loads
+      Net score.clef_rom.addr_d2[1]: 97 loads
+      Net score.clef_rom.addr_d2[0]: 81 loads
+      Net score.clef_rom.addr_d2[4]: 77 loads
+      Net n6: 63 loads
+      Net score.clef_rom.addr_d2[5]: 56 loads
+      Net vsync_pad.vcc: 52 loads
+      Net score.clef_rom.addr_d2[6]: 24 loads
+      Net score.clef_rom.addr_d2[7]: 22 loads
+
+   Number of warnings:  32
+   Number of criticals: 0
+   Number of errors:    0
+
+<A name="mrp_dwe"></A><B><U><big>Design Errors/Criticals/Warnings</big></U></B>
+
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (1) : No port
+     matched &apos;seg[6]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (2) : No port
+     matched &apos;seg[5]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (6) : No port
+     matched &apos;seg[1]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (8) : No port
+     matched &apos;anode2&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (9) : No port
+     matched &apos;anode1&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (11) : No port
+     matched &apos;A_note&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : No port
+     matched &apos;debug_pll_clk&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (13) : No port
+     matched &apos;led_load&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;seg[6]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (1) : Can&apos;t
+     resolve object &apos;seg[6]&apos; in constraint &apos;ldc_set_location -site {48}
+     [get_ports {seg[6]}]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;seg[5]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (2) : Can&apos;t
+     resolve object &apos;seg[5]&apos; in constraint &apos;ldc_set_location -site {47}
+     [get_ports {seg[5]}]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;seg[1]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (6) : Can&apos;t
+     resolve object &apos;seg[1]&apos; in constraint &apos;ldc_set_location -site {2}
+     [get_ports {seg[1]}]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;anode2&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (8) : Can&apos;t
+     resolve object &apos;anode2&apos; in constraint &apos;ldc_set_location -site {21}
+     [get_ports anode2]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;anode1&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (9) : Can&apos;t
+     resolve object &apos;anode1&apos; in constraint &apos;ldc_set_location -site {10}
+     [get_ports anode1]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;A_note&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (11) : Can&apos;t
+     resolve object &apos;A_note&apos; in constraint &apos;ldc_set_location -site {37}
+     [get_ports A_note]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;debug_pll_clk&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : Can&apos;t
+     resolve object &apos;debug_pll_clk&apos; in constraint &apos;ldc_set_location -site {28}
+     [get_ports debug_pll_clk]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;led_load&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/User/Desktop/proj_fft/pins.pdc (13) : Can&apos;t
+     resolve object &apos;led_load&apos; in constraint &apos;ldc_set_location -site {42}
+     [get_ports led_load]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {48}
+     [get_ports {seg[6]}]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {47}
+     [get_ports {seg[5]}]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {2}
+     [get_ports {seg[1]}]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {21}
+     [get_ports anode2]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {10}
+     [get_ports anode1]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {37}
+     [get_ports A_note]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {28}
+     [get_ports debug_pll_clk]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {42}
+     [get_ports led_load]&apos;.
+
+<A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| hsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[2]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[1]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[0]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| found_note          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+<A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
+
+
+<A name="mrp_pll"></A><B><U><big>PLL/DLL Summary</big></U></B>
+
+PLL 1:                                 Pin/Node Value
+  PLL Instance Name:                            pllclk/u_pll
+  Input Reference Clock:               NODE     pllclk.clk_ref
+  Output Clock(CoreA):                          NONE
+  Output Clock(GlobalA):               NODE     pll_clk_internal
+  Output Clock(CoreB):                          NONE
+  Output Clock(GlobalB):                        NONE
+  Feedback input:                      NODE     pllclk.intfbout_wire
+  Internal Feedback output:            NODE     pllclk.intfbout_wire
+  BYPASS signal:                                GND
+  LATCH signal:                                 GND
+  Lock Signal:                         NODE     sig_000.FeedThruLUT
+  Input Clock Frequency (MHz):                  NA
+  Reference Divider:                            0
+  Feedback Divider:                             16
+  VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
+  PLLOUT_SELECT_PORTB:                          GENCLK
+  SHIFTREG_DIV_MODE:                            0
+  DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
+  FDA_RELATIVE:                                 0
+  FEEDBACK_PATH:                                SIMPLE
+  DELAY_ADJUSTMENT_MODE_FEEDBACK:               FIXED
+  FDA_FEEDBACK:                                 0
+  FILTER_RANGE:                                 1
+  EXTERNAL_DIVIDE_FACTOR:                       NONE
+  TEST Mode:                                    0
+
+<A name="mrp_osc"></A><B><U><big>OSC Summary</big></U></B>
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            pllclk/u_hsosc
+  Power UP:                            NODE     vsync_pad.vcc
+  Enable Signal:                       NODE     vsync_pad.vcc
+  OSC Output:                          NODE     pllclk.clk_ref
+  DIV Setting:                                  00
+
+<A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
+
+Instance Name: score/mult_153
+         Type: DSP
+Instance Name: score/mult_15
+         Type: DSP
+Instance Name: pllclk/u_pll
+         Type: PLL
+Instance Name: pllclk/u_hsosc
+         Type: HFOSC
+
+<A name="mrp_consum"></A><B><U><big>Constraint Summary</big></U></B>
+
+   Total number of constraints: 18
+   Total number of constraints dropped: 8
+   Dropped constraints are:
+     ldc_set_location -site {48} [get_ports {seg[6]}]
+     ldc_set_location -site {47} [get_ports {seg[5]}]
+     ldc_set_location -site {2} [get_ports {seg[1]}]
+     ldc_set_location -site {21} [get_ports anode2]
+     ldc_set_location -site {10} [get_ports anode1]
+     ldc_set_location -site {37} [get_ports A_note]
+     ldc_set_location -site {28} [get_ports debug_pll_clk]
+     ldc_set_location -site {42} [get_ports led_load]
+
+<A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 75 MB
+Checksum -- map: 84e6fee89210249d7e41fe1352beadfcb116752a
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&amp;T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor
+     Corporation,  All rights reserved.
+</PRE></DIV>
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#mrp_di>Design Information</A></LI>
+<LI><A href=#mrp_ds>Design Summary</A></LI>
+<LI><A href=#mrp_dwe>Design Errors/Criticals/Warnings</A></LI>
+<LI><A href=#mrp_ioa>IO (PIO) Attributes</A></LI>
+<LI><A href=#mrp_rm>Removed logic</A></LI>
+<LI><A href=#mrp_pll>PLL/DLL Summary</A></LI>
+<LI><A href=#mrp_osc>OSC Summary</A></LI>
+<LI><A href=#mrp_asic>ASIC Components</A></LI>
+<LI><A href=#mrp_consum>Constraint Summary</A></LI>
+<LI><A href=#mrp_runtime>Run Time and Memory Usage</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

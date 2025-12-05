@@ -1,0 +1,19 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2025.1.0.39.0
+Tue Dec  2 02:58:46 2025
+
+WARNING <1027013> - No port matched 'seg[6]'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (1) : Can't resolve object 'seg[6]' in constraint 'ldc_set_location -site {48} [get_ports {seg[6]}]'.
+WARNING <1027013> - No port matched 'seg[5]'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (2) : Can't resolve object 'seg[5]' in constraint 'ldc_set_location -site {47} [get_ports {seg[5]}]'.
+WARNING <1027013> - No port matched 'seg[1]'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (6) : Can't resolve object 'seg[1]' in constraint 'ldc_set_location -site {2} [get_ports {seg[1]}]'.
+WARNING <1027013> - No port matched 'anode2'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (8) : Can't resolve object 'anode2' in constraint 'ldc_set_location -site {21} [get_ports anode2]'.
+WARNING <1027013> - No port matched 'anode1'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (9) : Can't resolve object 'anode1' in constraint 'ldc_set_location -site {10} [get_ports anode1]'.
+WARNING <1027013> - No port matched 'A_note'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (11) : Can't resolve object 'A_note' in constraint 'ldc_set_location -site {37} [get_ports A_note]'.
+WARNING <1027013> - No port matched 'debug_pll_clk'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (12) : Can't resolve object 'debug_pll_clk' in constraint 'ldc_set_location -site {28} [get_ports debug_pll_clk]'.
+WARNING <1027013> - No port matched 'led_load'.
+WARNING <1026001> - C:/Users/User/Desktop/proj_fft/pins.pdc (13) : Can't resolve object 'led_load' in constraint 'ldc_set_location -site {42} [get_ports led_load]'.

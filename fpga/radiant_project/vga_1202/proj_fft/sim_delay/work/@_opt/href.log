@@ -1,0 +1,4 @@
+BEGIN 1:fftfull:fast:work
+    note_dec :  1:testbench_fftfull:fast:work
+    note :  1:testbench_fftfull:fast:work
+END 

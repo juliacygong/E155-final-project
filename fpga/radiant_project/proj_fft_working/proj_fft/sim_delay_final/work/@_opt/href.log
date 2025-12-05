@@ -1,0 +1,5 @@
+BEGIN 1:fft_ctrl:fast:work
+    clk :  1:testbench_ctrl:fast:work
+    note_dec :  1:testbench_ctrl:fast:work
+    note :  1:testbench_ctrl:fast:work
+END 
