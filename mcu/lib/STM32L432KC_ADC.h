@@ -3,7 +3,14 @@
 
 #include "STM32L432KC.h"
 
+#define ADC_PIN PB0  // Analog input pin
+
 void initADC(void);
-uint16_t readADC(void);
+
+uint8_t readADC(void);
+
+void start_sampling(void);
+
+void stop_sampling(void);
 
 #endif
