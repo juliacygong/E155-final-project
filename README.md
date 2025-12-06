@@ -46,4 +46,4 @@ The final report of this project can be found in this [link](https://juliacygong
         - main.c
 
 ## Proposal
-- The proposal of this project can be found in the proposal folder
+The proposal of this project can be found in the proposal folder, or in this [website](https://georgiatai.github.io/E155-final-project/).
